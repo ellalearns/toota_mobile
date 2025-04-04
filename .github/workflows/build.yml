@@ -25,14 +25,10 @@ jobs:
       - name: Install Expo CLI and EAS CLI
         run: npm install -g expo-cli eas-cli
 
-      - name: Authenticate with Expo
-        run: |
-          echo ${{ secrets.EXPO_TOKEN }} | eas whoami
-        env:
-          EAS_CLI_ACCESS_TOKEN: ${{ secrets.EXPO_TOKEN }}
-
       - name: Build Android
         run: eas build --platform android --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: Rename Android APK
         run: |
@@ -42,6 +38,8 @@ jobs:
 
       - name: Build iOS
         run: eas build --platform ios --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: Rename iOS IPA
         run: |
