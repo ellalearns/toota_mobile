@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.toota.toota_mobile"
+      "bundleIdentifier": "com.toota.toota-mobile"
     },
     "android": {
       "adaptiveIcon": {
