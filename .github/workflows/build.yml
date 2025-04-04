@@ -24,6 +24,9 @@ jobs:
 
       - name: Install Expo CLI and EAS CLI
         run: npm install -g expo-cli eas-cli
+      
+      - name: Initialize EAS
+        run: eas init --indempotent
 
       - name: Build Android
         run: eas build --platform android --non-interactive
