@@ -29,7 +29,7 @@ jobs:
         run: npm install
 
       - name: Build Android
-        run: eas build --platform android --non-interactive
+        run: eas build --platform android --profile development --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
@@ -40,7 +40,7 @@ jobs:
           curl -L $build_url -o ./builds/toota.apk
 
       - name: Build iOS
-        run: eas build --platform ios --non-interactive
+        run: eas build --platform ios --profile development --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
