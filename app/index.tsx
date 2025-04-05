@@ -7,11 +7,11 @@ export default function Index() {
 
   const [splashScreen, setSplashScreen] = useState(true)
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setSplashScreen(false)
-  //   }, 2000)
-  // });
+  useEffect(() => {
+    setTimeout(() => {
+      setSplashScreen(false)
+    }, 2000)
+  });
 
   return (
     

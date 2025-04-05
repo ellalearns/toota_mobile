@@ -1,11 +1,11 @@
 import React from "react";
 import { Dimensions, Image, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient"
+import images from "@/constants/images";
 
 const SplashScreen = () => {
 
     const { width, height } = Dimensions.get("screen")
-    const stripeHeight = height / 3
 
     return (
         <View
@@ -14,6 +14,13 @@ const SplashScreen = () => {
                 alignItems: "center",
                 justifyContent: "center"
             }}>
+
+                <Image
+                source={images.spinner}
+                style={{
+                    zIndex: 1
+                }}
+                 />
 
             <LinearGradient
                 colors={["#e39018", "#cc7900"]}
