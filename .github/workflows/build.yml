@@ -50,43 +50,43 @@ jobs:
       #     echo "Build URL: $build_url"
       #     curl -L $build_url -o ./builds/toota.ipa
 
-      - name: Generate new version tag
-        id: version
-        run: |
-          latest_tag=$(git describe --tags --abbrev=0 || echo "v1.0.0")
-          latest_version=${latest_tag#v}
-          new_version=$(echo $latest_version | awk -F. '{print $1"."$2"."$3+1}')
-          echo "NEW_VERSION=v$new_version" >> $GITHUB_ENV
-          echo "New version: v$new_version"
-
-      - name: Commit build files
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions@github.com"
-          git add .
-          git commit -m "Auto-update build files ${{ env.NEW_VERSION }} [skip ci]" || echo "No changes to commit"
-          git push origin master
-
-      - name: Create Git Tag
-        run: |
-          git tag -a ${{ env.NEW_VERSION }} -m "Release ${{ env.NEW_VERSION }}"
-          git push origin ${{ env.NEW_VERSION }}
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.NEW_VERSION }}
-          name: "Release ${{ env.NEW_VERSION }}"
-          body: "🚀 New build available!"
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Clean Up Old Builds
+      # - name: Generate new version tag
+      #   id: version
       #   run: |
-      #     find builds -type f -name "*.apk" -mtime +1 -delete
-      #     find builds -type f -name "*.ipa" -mtime +1 -delete
-      #     git add builds/
-      #     git commit -m "Cleanup old builds" || echo "No old builds to delete"
-      #     git push origin master || echo "Nothing to push"
+      #     latest_tag=$(git describe --tags --abbrev=0 || echo "v1.0.0")
+      #     latest_version=${latest_tag#v}
+      #     new_version=$(echo $latest_version | awk -F. '{print $1"."$2"."$3+1}')
+      #     echo "NEW_VERSION=v$new_version" >> $GITHUB_ENV
+      #     echo "New version: v$new_version"
+
+      # - name: Commit build files
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions@github.com"
+      #     git add .
+      #     git commit -m "Auto-update build files ${{ env.NEW_VERSION }} [skip ci]" || echo "No changes to commit"
+      #     git push origin master
+
+      # - name: Create Git Tag
+      #   run: |
+      #     git tag -a ${{ env.NEW_VERSION }} -m "Release ${{ env.NEW_VERSION }}"
+      #     git push origin ${{ env.NEW_VERSION }}
+
+      # - name: Create GitHub Release
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     tag_name: ${{ env.NEW_VERSION }}
+      #     name: "Release ${{ env.NEW_VERSION }}"
+      #     body: "🚀 New build available!"
+      #     draft: false
+      #     prerelease: false
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # # - name: Clean Up Old Builds
+      # #   run: |
+      # #     find builds -type f -name "*.apk" -mtime +1 -delete
+      # #     find builds -type f -name "*.ipa" -mtime +1 -delete
+      # #     git add builds/
+      # #     git commit -m "Cleanup old builds" || echo "No old builds to delete"
+      # #     git push origin master || echo "Nothing to push"
