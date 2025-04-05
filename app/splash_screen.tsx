@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, View } from "react-native";
+import { Dimensions, Image, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient"
 
 const SplashScreen = () => {
@@ -12,39 +12,67 @@ const SplashScreen = () => {
             style={{
                 flex: 1,
                 alignItems: "center",
-                justifyContent: "center",
-                // backgroundColor: "#f99e1a"
+                justifyContent: "center"
             }}>
 
-            <View
+            <LinearGradient
+                colors={["#e39018", "#cc7900"]}
                 style={{
-                    backgroundColor: "#223311",
                     position: "absolute",
-                    top: "25%",
-                    height: height / 5,
-                    width: width * 2,
-                    left: -70,
+                    left: 0,
+                    top: 0,
                     right: 0,
-                    transform: [{
-                        rotate: "22deg"
-                    }]
-                }}></View>
+                    height: height
+                }}
+                end={{ x: 0.3, y: 1.5 }}
+            >
 
-            <View
-                style={{
-                    backgroundColor: "#223311",
-                    position: "absolute",
-                    top: "70%",
-                    height: height / 5,
-                    width: width * 2,
-                    left: -70,
-                    right: 0,
-                    transform: [{
-                        rotate: "22deg",
-                        
-                    }]
-                }}></View>
+                <View
+                    style={{
+                        backgroundColor: "#cc7900",
+                        position: "absolute",
+                        top: "10%",
+                        height: height / 5,
+                        width: width * 2,
+                        left: -70,
+                        right: 0,
+                        transform: [{
+                            rotate: "-22deg"
+                        }]
+                    }}>
+                    <LinearGradient
+                        colors={["#cc7900", "#e39018"]}
+                        style={{
+                            height: height / 5
+                        }}
+                        end={{ x: 0.1, y: 0.2 }}
+                    />
 
+                </View>
+
+                <View
+                    style={{
+                        backgroundColor: "#cc7900",
+                        position: "absolute",
+                        top: "55%",
+                        height: height / 5,
+                        width: width * 2,
+                        left: -70,
+                        right: 0,
+                        transform: [{
+                            rotate: "-22deg",
+
+                        }]
+                    }}>
+                    <LinearGradient
+                        colors={["#cc7900", "#e39018"]}
+                        style={{
+                            height: height / 5
+                        }}
+                        end={{ x: 0.1, y: 0.2 }}
+                    />
+                </View>
+            </LinearGradient>
         </View>
     )
 
