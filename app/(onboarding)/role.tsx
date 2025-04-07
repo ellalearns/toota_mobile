@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import images from "@/constants/images";
+import { Link, useRouter } from "expo-router";
 
 const Role = () => {
+
+    const router = useRouter();
 
     const [tripSelected, isTripSelected] = useState(false)
     const [driverSelected, isDriverSelected] = useState(false)
@@ -23,7 +26,7 @@ const Role = () => {
     return (
         <View style={styles.rolePage}>
             <View style={{ flex: .2 }}></View>{/* gives the space before the roles */}
-            
+
             <View
                 style={styles.roleGroup}>
                 <Text style={styles.roleTitle}>Choose your role</Text>
@@ -42,10 +45,11 @@ const Role = () => {
             </View>
 
             <View style={styles.bottomFlex}>
-                <TouchableOpacity style={[styles.continueButton, roleSelected ? styles.selectedContinueButton : null]}>
-                    <Text style={[styles.continueText, roleSelected ? styles.selectedContinueText : null]}>Continue</Text>
+                <TouchableOpacity style={[styles.continueButton, roleSelected ? styles.selectedContinueButton : null]}
+                onPress={() => {router.navigate("/intro")}}>
+                <Text style={[styles.continueText, roleSelected ? styles.selectedContinueText : null]}>Continue</Text>
                 </TouchableOpacity>
-                <Text style={styles.continueText}>I have an account</Text>
+                <Link href="/main_app"><Text style={[styles.continueText, styles.signInText]}>I already have an account</Text></Link>
             </View>
 
         </View>
@@ -121,5 +125,9 @@ const styles = StyleSheet.create({
     },
     selectedContinueText: {
         color: "#fef5e8"
+    },
+    signInText: {
+        color: "#f99e1a",
+        textDecorationLine: "underline",
     }
 })
