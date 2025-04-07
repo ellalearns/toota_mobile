@@ -14,11 +14,11 @@ const Role = () => {
         isRoleSelected(true)
     }
 
-    // const pickDriver = () => {
-    //     isDriverSelected(true)
-    //     isTripSelected(false)
-    //     isRoleSelected(true)
-    // }
+    const pickDriver = () => {
+        isTripSelected(false)
+        isDriverSelected(true)
+        isRoleSelected(true)
+    }
 
     return (
         <View
@@ -56,30 +56,20 @@ const Role = () => {
                     style={styles.roleBoxButtons}
                     onPress={() => pickTrip()}>
                     <View
-                        style={[styles.roleBox, roleSelected ? styles.selectedRoleBox : null]}>
+                        style={[styles.roleBox, tripSelected ? styles.selectedRoleBox : null]}>
                         <Image source={images.findDriver} />
                         <Text
                             style={styles.innerRoleBoxContent}>Find a trip</Text>
                     </View>
                 </TouchableOpacity>
-
-                <View
-                    style={{
-                        height: "30%",
-                        width: "80%",
-                        backgroundColor: "#fef5e8",
-                        borderRadius: 20,
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "space-evenly"
-                    }}>
-                    <Image source={images.findTrip} />
-                    <Text
-                        style={{
-                            fontSize: 15,
-                            color: "#6b6357"
-                        }}>Find a driver</Text>
-                </View>
+                <TouchableOpacity style={styles.roleBoxButtons} onPress={() => pickDriver()}>
+                    <View
+                        style={[styles.roleBox, driverSelected ? styles.selectedRoleBox : null]}>
+                        <Image source={images.findTrip} />
+                        <Text
+                            style={styles.innerRoleBoxContent}>Find a driver</Text>
+                    </View>
+                </TouchableOpacity>
 
             </View>
             <View
