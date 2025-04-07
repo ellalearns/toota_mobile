@@ -51,22 +51,18 @@ const Role = () => {
                     style={{
                         fontSize: 40
                     }}>Choose your role</Text>
+
                 <TouchableOpacity
-                    style={{
-                        height: "30%",
-                        width: "80%"
-                    }}
+                    style={styles.roleBoxButtons}
                     onPress={() => pickTrip()}>
                     <View
                         style={[styles.roleBox, roleSelected ? styles.selectedRoleBox : null]}>
                         <Image source={images.findDriver} />
                         <Text
-                            style={{
-                                fontSize: 15,
-                                color: "#6b6357"
-                            }}>Find a trip</Text>
+                            style={styles.innerRoleBoxContent}>Find a trip</Text>
                     </View>
                 </TouchableOpacity>
+
                 <View
                     style={{
                         height: "30%",
@@ -132,5 +128,13 @@ const styles = StyleSheet.create({
     selectedRoleBox: {
         borderWidth: 2,
         borderColor: "#f99e1a"
+    },
+    innerRoleBoxContent: {
+        fontSize: 15,
+        color: "#6b6357"
+    },
+    roleBoxButtons: {
+        height: "30%",
+        width: "80%"
     }
 })
