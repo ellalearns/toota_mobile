@@ -1,8 +1,11 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import images from "@/constants/images";
 
 const Role = () => {
+
+
+    
     return (
         <View
             style={{
@@ -61,8 +64,8 @@ const Role = () => {
                         alignItems: "center",
                         justifyContent: "space-evenly"
                     }}>
-                        <Image source={images.findDriver} />
-                        <Text 
+                    <Image source={images.findDriver} />
+                    <Text
                         style={{
                             fontSize: 15,
                             color: "#6b6357"
@@ -78,8 +81,8 @@ const Role = () => {
                         alignItems: "center",
                         justifyContent: "space-evenly"
                     }}>
-                        <Image source={images.findTrip} />
-                        <Text 
+                    <Image source={images.findTrip} />
+                    <Text
                         style={{
                             fontSize: 15,
                             color: "#6b6357"
@@ -89,9 +92,34 @@ const Role = () => {
             </View>
             <View
                 style={{
-                    backgroundColor: "green",
-                    flex: .3
-                }}></View>
+                    // backgroundColor: "green",
+                    flex: .3,
+                    borderColor: "green",
+                    borderWidth: 2,
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center"
+                }}>
+                <TouchableOpacity
+                    style={{
+                        backgroundColor: "#f99e1a",
+                        width: "85%",
+                        height: "25%",
+                        borderRadius: 50,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginBottom: 20
+                    }}>
+                    <Text
+                        style={{
+                            fontSize: 15,
+                            color: "#fef5e8",
+                            textAlign: "center",
+                        }}
+                    >Continue</Text>
+                </TouchableOpacity>
+                <Text>I have an account</Text>
+            </View>
         </View>
     )
 }
