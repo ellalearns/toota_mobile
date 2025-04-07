@@ -1,11 +1,25 @@
-import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import images from "@/constants/images";
 
 const Role = () => {
 
+    const [tripSelected, isTripSelected] = useState(false)
+    const [driverSelected, isDriverSelected] = useState(false)
+    const [roleSelected, isRoleSelected] = useState(false)
 
-    
+    const pickTrip = () => {
+        isTripSelected(true)
+        isDriverSelected(false)
+        isRoleSelected(true)
+    }
+
+    // const pickDriver = () => {
+    //     isDriverSelected(true)
+    //     isTripSelected(false)
+    //     isRoleSelected(true)
+    // }
+
     return (
         <View
             style={{
@@ -16,7 +30,6 @@ const Role = () => {
             }}>
             <View
                 style={{
-                    // backgroundColor: "green",
                     flex: .2
                 }}>
 
@@ -33,44 +46,27 @@ const Role = () => {
                     marginTop: 20,
                     borderRadius: 30
                 }}>
-                {/* <View
-                style={{
-                    backgroundColor: "fef5e8",
-                    // justifyContent: "space-around",
-                    height: 20,
-                    // flex: 1
-                }}></View> */}
-
-                {/* <View
-                style={{
-                    backgroundColor: "fef5e8",
-                    // justifyContent: "space-around",
-                    // height: "20%",
-                    // flex: 1
-                }}></View> */}
 
                 <Text
                     style={{
                         fontSize: 40
                     }}>Choose your role</Text>
-
-                <View
+                <TouchableOpacity
                     style={{
                         height: "30%",
-                        width: "80%",
-                        backgroundColor: "#fef5e8",
-                        borderRadius: 20,
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "space-evenly"
-                    }}>
-                    <Image source={images.findDriver} />
-                    <Text
-                        style={{
-                            fontSize: 15,
-                            color: "#6b6357"
-                        }}>Find a trip</Text>
-                </View>
+                        width: "80%"
+                    }}
+                    onPress={() => pickTrip()}>
+                    <View
+                        style={[styles.roleBox, roleSelected ? styles.selectedRoleBox : null]}>
+                        <Image source={images.findDriver} />
+                        <Text
+                            style={{
+                                fontSize: 15,
+                                color: "#6b6357"
+                            }}>Find a trip</Text>
+                    </View>
+                </TouchableOpacity>
                 <View
                     style={{
                         height: "30%",
@@ -92,10 +88,7 @@ const Role = () => {
             </View>
             <View
                 style={{
-                    // backgroundColor: "green",
                     flex: .3,
-                    borderColor: "green",
-                    borderWidth: 2,
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center"
@@ -125,3 +118,19 @@ const Role = () => {
 }
 
 export default Role
+
+const styles = StyleSheet.create({
+    roleBox: {
+        height: "100%",
+        width: "100%",
+        backgroundColor: "#fef5e8",
+        borderRadius: 20,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-evenly"
+    },
+    selectedRoleBox: {
+        borderWidth: 2,
+        borderColor: "#f99e1a"
+    }
+})
