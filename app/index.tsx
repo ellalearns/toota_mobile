@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import SplashScreen from "./splash_screen";
 import MainAppPage from "./main_app";
+import Role from "./(onboarding)/role";
 
 export default function Index() {
 
@@ -15,7 +16,7 @@ export default function Index() {
 
   return (
     
-    (splashScreen) ? <SplashScreen /> : <MainAppPage />
+    (splashScreen) ? <SplashScreen /> : <Role />
 
   );
 }
