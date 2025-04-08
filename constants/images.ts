@@ -4,7 +4,8 @@ const images = {
     spinner: require("../assets/images/spinner2.png"),
     findTrip: require("../assets/images/findTrip.png"),
     findDriver: require("../assets/images/findDriver.png"),
-    welcome: require("../assets/images/welcome.png")
+    welcome: require("../assets/images/welcome.png"),
+    line: require("../assets/images/line.png")
 }
 
 export default images
