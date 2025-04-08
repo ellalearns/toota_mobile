@@ -3,6 +3,7 @@ import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import images from "@/constants/images";
 import MainButton from "@/components/MainButton";
 import stylesMainButton from "@/styles/styles_MainButton";
+import SignInOption from "@/components/signInOption";
 
 const WelcomeScreen = () => {
 
@@ -24,8 +25,13 @@ const WelcomeScreen = () => {
                 
                 <View style={styles.rowFlex}>
                     <Image source={images.line} />
-                    <Text style={styles.alternateText}>or continue using</Text>
+                    <Text style={styles.alternateText}>  or continue using  </Text>
                     <Image source={images.line} />
+                </View>
+
+                <View style={styles.othersFlex}>
+                    <SignInOption text="Google" icon={images.google} />
+                    <SignInOption text="Apple" icon={images.apple} />
                 </View>
 
 
@@ -68,5 +74,11 @@ const styles = StyleSheet.create({
     },
     alternateText: {
         color: "#bab6b0"
-    }
+    },
+    othersFlex: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "85%"
+    },
 })
