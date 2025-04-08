@@ -21,6 +21,10 @@ const WelcomeScreen = () => {
 
             <View style={styles.upperView}>
                 <BackButton />
+                <View style={styles.textView}>
+                    <Text style={styles.headerText}>Welcome</Text>
+                    <Text style={styles.paraText}>Experience hassle-free transportation with a variety of vehicles ready to meet your needs.</Text>
+                </View>
             </View>
 
             <View style={styles.lowerView}>
@@ -69,6 +73,7 @@ const styles = StyleSheet.create({
     },
     upperView: {
         flex: 0.6,
+        justifyContent: "space-between"
     },
     lowerView: {
         flex: 0.4,
@@ -105,5 +110,19 @@ const styles = StyleSheet.create({
     signInText: {
         color: "#f99e1a",
         textDecorationLine: "underline",
+    },
+    headerText: {
+        color: "#ffffff",
+        fontSize: 60,
+        lineHeight: 90
+    },
+    paraText: {
+        color: "#ffffff",
+        fontSize: 16.5,
+        lineHeight: 30,
+    },
+    textView: {
+        width: "50%",
+        margin: 20
     }
 })
