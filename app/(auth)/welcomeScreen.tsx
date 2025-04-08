@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import images from "@/constants/images";
 import MainButton from "@/components/MainButton";
 import stylesMainButton from "@/styles/styles_MainButton";
@@ -21,6 +21,9 @@ const WelcomeScreen = () => {
             <View style={styles.upperView}></View>
 
             <View style={styles.lowerView}>
+
+                <View>
+                
                 <MainButton text="Create an account" pressFun={onCreatePress} />
                 
                 <View style={styles.rowFlex}>
@@ -33,6 +36,12 @@ const WelcomeScreen = () => {
                     <SignInOption text="Google" icon={images.google} />
                     <SignInOption text="Apple" icon={images.apple} />
                 </View>
+
+                </View>
+
+                <TouchableOpacity>
+                    <Text style={[styles.continueText, styles.signInText]}>I already have an account</Text>
+                </TouchableOpacity>
 
 
             </View>
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         height: "100%",
         width: "100%",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
         alignItems: "center"
     },
     rowFlex: {
@@ -79,6 +88,20 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        width: "85%"
+        width: "85%",
+        marginTop: 20,
+        marginLeft: 2
     },
+    continueText: {
+        fontSize: 15,
+        color: "#6b6357",
+        textAlign: "center",
+    },
+    selectedContinueText: {
+        color: "#fef5e8"
+    },
+    signInText: {
+        color: "#f99e1a",
+        textDecorationLine: "underline",
+    }
 })
