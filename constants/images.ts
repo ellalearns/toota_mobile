@@ -7,7 +7,8 @@ const images = {
     welcome: require("../assets/images/welcome.png"),
     line: require("../assets/images/line.png"),
     google: require("../assets/images/google.png"),
-    apple: require("../assets/images/apple.png")
+    apple: require("../assets/images/apple.png"),
+    arrowLeft: require("../assets/images/arrow-left.png")
 }
 
 export default images

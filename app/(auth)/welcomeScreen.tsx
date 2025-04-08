@@ -4,6 +4,7 @@ import images from "@/constants/images";
 import MainButton from "@/components/MainButton";
 import stylesMainButton from "@/styles/styles_MainButton";
 import SignInOption from "@/components/signInOption";
+import BackButton from "@/components/BackButton";
 
 const WelcomeScreen = () => {
 
@@ -18,7 +19,9 @@ const WelcomeScreen = () => {
 
             {/* <View style={styles.transparentView}></View> */}
 
-            <View style={styles.upperView}></View>
+            <View style={styles.upperView}>
+                <BackButton />
+            </View>
 
             <View style={styles.lowerView}>
 
@@ -58,7 +61,6 @@ const styles = StyleSheet.create({
     mainBody: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
     },
     transparentView: {
         backgroundColor: "green",
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
         width: 100,
     },
     upperView: {
-        flex: 0.6
+        flex: 0.6,
     },
     lowerView: {
         flex: 0.4,
