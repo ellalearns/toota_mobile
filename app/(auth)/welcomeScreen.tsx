@@ -2,9 +2,9 @@ import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import images from "@/constants/images";
 import MainButton from "@/components/MainButton";
-import stylesMainButton from "@/styles/styles_MainButton";
 import SignInOption from "@/components/signInOption";
 import BackButton from "@/components/BackButton";
+import { LinearGradient } from "expo-linear-gradient";
 
 const WelcomeScreen = () => {
 
@@ -17,7 +17,12 @@ const WelcomeScreen = () => {
             }]
         }}>
 
-            {/* <View style={styles.transparentView}></View> */}
+
+            <LinearGradient
+                colors={["#f99e1a", "#935d0f"]}
+                style={styles.transparentView}>
+
+            </LinearGradient>
 
             <View style={styles.upperView}>
                 <BackButton />
@@ -30,19 +35,19 @@ const WelcomeScreen = () => {
             <View style={styles.lowerView}>
 
                 <View>
-                
-                <MainButton text="Create an account" pressFun={onCreatePress} />
-                
-                <View style={styles.rowFlex}>
-                    <Image source={images.line} />
-                    <Text style={styles.alternateText}>  or continue using  </Text>
-                    <Image source={images.line} />
-                </View>
 
-                <View style={styles.othersFlex}>
-                    <SignInOption text="Google" icon={images.google} />
-                    <SignInOption text="Apple" icon={images.apple} />
-                </View>
+                    <MainButton text="Create an account" pressFun={onCreatePress} />
+
+                    <View style={styles.rowFlex}>
+                        <Image source={images.line} />
+                        <Text style={styles.alternateText}>  or continue using  </Text>
+                        <Image source={images.line} />
+                    </View>
+
+                    <View style={styles.othersFlex}>
+                        <SignInOption text="Google" icon={images.google} />
+                        <SignInOption text="Apple" icon={images.apple} />
+                    </View>
 
                 </View>
 
@@ -67,9 +72,16 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     transparentView: {
-        backgroundColor: "green",
-        height: 200,
-        width: 100,
+        height: 500,
+        width: 500,
+        position: "absolute",
+        borderRadius: 230,
+        transform: [{
+            translateX: -180
+        }, {
+            translateY: 80
+        }],
+        opacity: 0.3
     },
     upperView: {
         flex: 0.6,
@@ -119,10 +131,11 @@ const styles = StyleSheet.create({
     paraText: {
         color: "#ffffff",
         fontSize: 16.5,
-        lineHeight: 30,
+        lineHeight: 25,
     },
     textView: {
         width: "50%",
-        margin: 20
+        margin: 20,
+        marginBottom: 55
     }
 })
