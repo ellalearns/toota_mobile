@@ -5,8 +5,11 @@ import MainButton from "@/components/MainButton";
 import SignInOption from "@/components/signInOption";
 import BackButton from "@/components/BackButton";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 
 const WelcomeScreen = () => {
+
+    const router = useRouter()
 
     const onCreatePress = () => { }
 
@@ -25,7 +28,7 @@ const WelcomeScreen = () => {
             </LinearGradient>
 
             <View style={styles.upperView}>
-                <BackButton />
+                <BackButton onPress={() => {router.navigate("/(onboarding)/role")}} />
                 <View style={styles.textView}>
                     <Text style={styles.headerText}>Welcome</Text>
                     <Text style={styles.paraText}>Experience hassle-free transportation with a variety of vehicles ready to meet your needs.</Text>

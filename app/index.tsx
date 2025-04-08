@@ -17,8 +17,7 @@ export default function Index() {
 
   return (
     
-    // (splashScreen) ? <SplashScreen /> : <Role />
-    <WelcomeScreen />
+    (splashScreen) ? <SplashScreen /> : <Role />
 
   );
 }
