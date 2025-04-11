@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles_SkipButton from "@/styles/styles_SkipButton";
 
@@ -7,8 +7,14 @@ type SkipButtonProps = {
 }
 
 const SkipButton = ({ onPress }: SkipButtonProps) => {
+
+
+    // useEffect(() => {
+    //     Screen
+    // })
+
     return(
-        <TouchableOpacity style={styles_SkipButton.main}>
+        <TouchableOpacity style={styles_SkipButton.main} onPress={onPress}>
             <Text style={styles_SkipButton.text}>Skip</Text>
         </TouchableOpacity>
     )

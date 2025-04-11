@@ -15,26 +15,29 @@ const TootaIntro = () => {
     const headers = copy.onHeaders
     const text = copy.onText
 
+    const imageList = [images.onImage1, images.onImage2, images.onImage3]
+
     const [currentPosition, setCurrentPostion] = useState(0)
 
     const pressNext = () => {
-
         if (currentPosition < 2) {
             setCurrentPostion(currentPosition + 1)
             return
         }
-
         router.navigate("/login")
     }
 
+    const toLogin = () => {
+        router.navigate("/login")
+    }
 
     return (
         <SafeAreaProvider>
             <SafeAreaView style={styles_intro.mainView} edges={["top"]}>
-                <ImageBackground source={images.onImage1} style={styles_intro.image} />
+                <ImageBackground source={imageList[currentPosition]} style={styles_intro.image} />
 
                 <View style={styles_intro.skipView}>
-                    <SkipButton onPress={() => {}} />
+                    <SkipButton onPress={toLogin} />
                 </View>
 
                 <View style={styles_intro.actionView}>
