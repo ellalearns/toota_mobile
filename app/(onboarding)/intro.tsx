@@ -6,8 +6,11 @@ import SkipButton from "@/components/SkipButton";
 import styles_intro from "@/styles/styles_intro";
 import images from "@/constants/images";
 import MainButton from "@/components/MainButton";
+import { useRouter } from "expo-router";
 
 const TootaIntro = () => {
+
+    const router = useRouter()
 
     const headers = copy.onHeaders
     const text = copy.onText
@@ -21,8 +24,7 @@ const TootaIntro = () => {
             return
         }
 
-        ToastAndroid.show("now at 2", 1000)
-
+        router.navigate("/login")
     }
 
 
@@ -32,7 +34,7 @@ const TootaIntro = () => {
                 <ImageBackground source={images.onImage1} style={styles_intro.image} />
 
                 <View style={styles_intro.skipView}>
-                    <SkipButton onPress={() => { }} />
+                    <SkipButton onPress={() => {}} />
                 </View>
 
                 <View style={styles_intro.actionView}>
