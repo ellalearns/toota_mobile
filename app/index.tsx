@@ -4,6 +4,7 @@ import SplashScreen from "./splash_screen";
 import MainAppPage from "./main_app";
 import Role from "./(onboarding)/role";
 import WelcomeScreen from "./(auth)/welcomeScreen";
+import TootaIntro from "./(onboarding)/intro";
 
 export default function Index() {
 
@@ -17,7 +18,9 @@ export default function Index() {
 
   return (
     
-    (splashScreen) ? <SplashScreen /> : <Role />
+    // (splashScreen) ? <SplashScreen /> : <Role />
+
+    <TootaIntro />
 
   );
 }

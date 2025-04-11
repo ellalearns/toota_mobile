@@ -11,7 +11,9 @@ const WelcomeScreen = () => {
 
     const router = useRouter()
 
-    const onCreatePress = () => { }
+    const onCreatePress = () => {
+        router.navigate("/(onboarding)/intro")
+    }
 
     return (
         <ImageBackground source={images.welcome} style={styles.mainBody} imageStyle={{
