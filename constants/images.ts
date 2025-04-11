@@ -12,6 +12,8 @@ const images = {
     onImage1: require("../assets/images/onImage1.png"),
     onImage2: require("../assets/images/onImage2.png"),
     onImage3: require("../assets/images/onImage3.png"),
+    currentItem: require("../assets/images/currentItem.png"),
+    inactiveItem: require("../assets/images/inactiveItem.png")
 }
 
 export default images
