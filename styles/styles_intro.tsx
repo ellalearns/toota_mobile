@@ -56,7 +56,7 @@ const styles_intro = StyleSheet.create({
     },
     buttonView: {
         flex: 0.2,
-        marginTop: 10
+        marginBottom: 30
     },
     positionPointer: {
         marginLeft: 2,
