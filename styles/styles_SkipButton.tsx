@@ -7,9 +7,8 @@ const styles_SkipButton = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 25,
         borderColor: "#f99e1a",
-        flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     text: {
         fontSize: 20,
