@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import copy from "@/constants/texts";
+import SkipButton from "@/components/SkipButton";
 
 const TootaIntro = () => {
 
@@ -12,7 +13,7 @@ const TootaIntro = () => {
     return (
         <SafeAreaProvider>
             <SafeAreaView>
-                <Text>Final Onboarding Screen</Text>
+                <SkipButton onPress={() => {}} />
             </SafeAreaView>
         </SafeAreaProvider>
     )
