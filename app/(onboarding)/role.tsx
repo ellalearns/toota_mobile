@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, ToastAndroid, TouchableOpacity, View } from "react-native";
 import images from "@/constants/images";
 import { Link, useRouter } from "expo-router";
 
@@ -46,7 +46,7 @@ const Role = () => {
 
             <View style={styles.bottomFlex}>
                 <TouchableOpacity style={[styles.continueButton, roleSelected ? styles.selectedContinueButton : null]}
-                onPress={() => {router.navigate("/intro")}}>
+                onPress={() => {roleSelected ? router.navigate("/(auth)/welcomeScreen") : ToastAndroid.showWithGravity("please choose a role", 1000, ToastAndroid.TOP)}}>
                 <Text style={[styles.continueText, roleSelected ? styles.selectedContinueText : null]}>Continue</Text>
                 </TouchableOpacity>
                 <Link href="/main_app"><Text style={[styles.continueText, styles.signInText]}>I already have an account</Text></Link>
