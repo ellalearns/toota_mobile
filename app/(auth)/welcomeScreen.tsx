@@ -12,7 +12,7 @@ const WelcomeScreen = () => {
     const router = useRouter()
 
     const onCreatePress = () => {
-        router.navigate("/(onboarding)/intro")
+        router.navigate("/(auth)/signup")
     }
 
     return (
