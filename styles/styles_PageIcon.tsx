@@ -4,9 +4,18 @@ const styles_PageIcon = StyleSheet.create({
     main: {
         height: 100,
         width: 100,
-        borderWidth: 2,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#fff9f1",
+        borderRadius: 100
+    },
+
+    second_main: {
+        height: 70,
+        width: 70,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#fefaf3"
     },
 
     image: {

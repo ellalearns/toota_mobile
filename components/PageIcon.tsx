@@ -6,7 +6,7 @@ import { Image, View } from "react-native";
 const PageIcon = () => {
     return (
         <View style={styles_PageIcon.main}>
-            <View>
+            <View style={styles_PageIcon.second_main}>
                 <Image source={images.logo} style={styles_PageIcon.image} />
             </View>
         </View>
