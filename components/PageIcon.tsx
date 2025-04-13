@@ -7,7 +7,7 @@ const PageIcon = () => {
     return (
         <View style={styles_PageIcon.main}>
             <View>
-                <Image source={images.icon} style={styles_PageIcon.image} />
+                <Image source={images.logo} style={styles_PageIcon.image} />
             </View>
         </View>
     )

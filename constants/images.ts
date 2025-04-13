@@ -13,7 +13,8 @@ const images = {
     onImage2: require("../assets/images/onImage2.png"),
     onImage3: require("../assets/images/onImage3.png"),
     currentItem: require("../assets/images/currentItem.png"),
-    inactiveItem: require("../assets/images/inactiveItem.png")
+    inactiveItem: require("../assets/images/inactiveItem.png"),
+    logo: require("../assets/images/toota-logo.png")
 }
 
 export default images
