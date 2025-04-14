@@ -9,7 +9,9 @@ const stylesSignInOption = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 7,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        marginLeft: 10,
+        marginRight: 10
     },
 
     icon: {

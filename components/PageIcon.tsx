@@ -8,7 +8,7 @@ const PageIcon = () => {
     return (
         <View style={styles_PageIcon.container}>
             <View style={styles_PageIcon.container}>
-                <Svg height="100" width="100">
+                <Svg height="100%" width="100%">
                     <Defs>
                         <RadialGradient
                             id="grad"

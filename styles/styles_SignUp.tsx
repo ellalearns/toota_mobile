@@ -18,6 +18,12 @@ const styles_SignUp = StyleSheet.create({
         textAlign: "center",
         color: "#6b6357",
         fontSize: 16
+    },
+    mainContent: {},
+    orView: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
     }
 })
 
