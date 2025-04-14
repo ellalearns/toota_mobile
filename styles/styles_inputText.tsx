@@ -4,7 +4,6 @@ const styles_InputText = StyleSheet.create({
     
     main: {
         flexDirection: "row",
-        flex: 1,
         minWidth: 40,
         minHeight: 5,
         backgroundColor: "#fef5e8",
@@ -21,6 +20,9 @@ const styles_InputText = StyleSheet.create({
     inputLabel: {
         fontSize: 16,
         paddingBottom: 5
+    },
+    mainView: {
+        
     }
 })
 

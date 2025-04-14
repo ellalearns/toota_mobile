@@ -6,7 +6,8 @@ const styles_SignUp = StyleSheet.create({
         padding: 16,
         backgroundColor: "#ffffff",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        borderWidth: 1
     },
     headerContent: {},
     signup1: {
@@ -24,6 +25,17 @@ const styles_SignUp = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+    },
+    actionView: {},
+    policyView: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    policyText: {
+        fontSize: 16,
+        color: "#6b6357"
     }
 })
 

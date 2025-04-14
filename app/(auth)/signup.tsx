@@ -1,4 +1,6 @@
 import InputText from "@/components/InputText";
+import LinkText from "@/components/LinkText";
+import MainButton from "@/components/MainButton";
 import PageIcon from "@/components/PageIcon";
 import SignInOption from "@/components/signInOption";
 import images from "@/constants/images";
@@ -12,6 +14,8 @@ const SignUp = () => {
 
     let email = ""
     let password = ""
+
+    const createAccount = () => {}
 
     return (
         <SafeAreaProvider>
@@ -51,11 +55,22 @@ const SignUp = () => {
                     <SignInOption text="Apple" icon={images.apple} />
                     </View>
 
+                    <View style={styles_SignUp.policyView}>
+                        <Text style={styles_SignUp.policyText}>Creating an account means you accept our</Text>
+                        <LinkText text="Terms and Conditions" action={createAccount} />
+                        <Text style={styles_SignUp.policyText}>and acknowledge our</Text>
+                        <LinkText text="Privacy Policy" action={createAccount} />
+                        <Text style={styles_SignUp.policyText}>.</Text>
+                    </View>
+                    
 
 
                 </View>
 
-                <View></View>
+                <View style={styles_SignUp.actionView}>
+                    <MainButton text="Create account" pressFun={createAccount} />
+                    <LinkText text="I already have an account" action={createAccount} />
+                </View>
 
             </SafeAreaView>
         </SafeAreaProvider>

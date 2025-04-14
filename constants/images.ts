@@ -17,7 +17,8 @@ const images = {
     logo: require("../assets/images/toota-logo.png"),
     phone: require("../assets/images/phone.png"),
     lock: require("../assets/images/lock-open.png"),
-    closedEye: require("../assets/images/eye-slash.png")
+    closedEye: require("../assets/images/eye-slash.png"),
+    eclipse: require("../assets/images/eclipse.png")
 }
 
 export default images
