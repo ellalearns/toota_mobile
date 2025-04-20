@@ -4,11 +4,11 @@ const styles_InputText = StyleSheet.create({
     
     main: {
         flexDirection: "row",
-        minWidth: 40,
-        minHeight: 5,
+        width: "90%",
+        height: 50,
         backgroundColor: "#fef5e8",
         alignItems: "center",
-        borderRadius: 10
+        borderRadius: 10,
     },
     text: {
         flex: 1,
@@ -18,11 +18,11 @@ const styles_InputText = StyleSheet.create({
         margin: 5
     },
     inputLabel: {
-        fontSize: 16,
+        fontSize: 20,
         paddingBottom: 5
     },
     mainView: {
-        
+        // alignSelf: "center"
     }
 })
 

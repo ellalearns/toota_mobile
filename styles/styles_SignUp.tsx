@@ -3,40 +3,60 @@ import { StyleSheet } from "react-native";
 const styles_SignUp = StyleSheet.create({
     main: {
         flex: 1,
-        padding: 16,
         backgroundColor: "#ffffff",
-        justifyContent: "center",
-        alignItems: "center",
-        borderWidth: 1
+        width: "100%",
+        justifyContent: "space-around"
     },
-    headerContent: {},
+    view1: {
+        flex: 0.6,
+    },
+    backView: {
+        paddingLeft: 20
+    },
+    textView: {
+        paddingLeft: 20,
+        marginTop: 16
+    },
+    emailView: {
+        paddingLeft: 20,
+        marginTop: 24
+    },
+    lineView: {
+        marginTop: 16,
+        alignSelf: "center",
+        flexDirection: "row"
+    },
     signup1: {
-        textAlign: "center",
         color: "#1f1200",
-        fontSize: 24
+        fontSize: 24,
+        fontStyle: "normal",
+        fontWeight: 700,
+        letterSpacing: -0.96,
     },
     signup2: {
-        textAlign: "center",
+        textAlign: "left",
         color: "#6b6357",
-        fontSize: 16
+        fontSize: 16,
+        width: "90%"
     },
-    mainContent: {},
-    orView: {
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    actionView: {},
     policyView: {
         flexDirection: "row",
         flexWrap: "wrap",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        marginTop: 16
     },
     policyText: {
         fontSize: 16,
         color: "#6b6357"
-    }
+    },
+    buttonView: {
+        alignSelf: "center"
+    },
+    viewBreak: {
+        // height: "1%"
+        marginTop: 16
+    },
 })
 
 export default styles_SignUp
