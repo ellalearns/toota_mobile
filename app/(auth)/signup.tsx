@@ -8,20 +8,33 @@ import ViewBreak from "@/components/ViewBreak";
 import images from "@/constants/images";
 import copy from "@/constants/texts";
 import styles_SignUp from "@/styles/styles_SignUp";
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, Image, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, ScrollView, NativeModules, KeyboardAvoidingViewComponent } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const SignUp = () => {
 
+    const [keyboardVisible, setKeyboardVisible] = useState(false)
+
+    const onDismissKeyboard = () => {
+        Keyboard.dismiss()
+        setKeyboardVisible(false)
+    }
+
+    const onEnterKeyboard = () => {
+        setKeyboardVisible(true)
+    }
+
     let email = ""
-    let password = ""
 
     const createAccount = () => { }
 
     return (
         <SafeAreaProvider>
-            <SafeAreaView style={styles_SignUp.main}>
+            <KeyboardAvoidingView style={styles_SignUp.main}
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                onTouchStart={onDismissKeyboard}
+            >
 
                 <View style={styles_SignUp.view1}>
 
@@ -39,7 +52,12 @@ const SignUp = () => {
                     {/* </View> */}
 
                     <View style={styles_SignUp.emailView}>
-                        <InputText icon1={images.phone} label="Email" placeholder="Please enter your email" value={email} secure={false} />
+                        <InputText icon1={images.phone}
+                            label="Email" 
+                            placeholder="Please enter your email" 
+                            value={email} 
+                            secure={false} 
+                            onFocus={onEnterKeyboard}/>
                     </View>
 
                     <View style={styles_SignUp.lineView}>
@@ -61,13 +79,13 @@ const SignUp = () => {
                         <MainButton text="Create account" pressFun={() => { }} />
                     </View>
 
-                    <View>
+                    {keyboardVisible ? null : <View>
                         <LinkText text="I already have an account" action={() => { }} />
-                    </View>
+                    </View>}
 
                 </View>
 
-            </SafeAreaView>
+            </KeyboardAvoidingView>
         </SafeAreaProvider>
     )
 }

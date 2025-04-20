@@ -8,11 +8,12 @@ type InputTextProps = {
     placeholder?: string,
     secure: boolean,
     value: string,
-    label: string
+    label: string,
+    onFocus?: () => void
 }
 
 const InputText = ({
-    icon1 = "", icon2 = "", placeholder = "", secure = false, value = "", label = ""
+    icon1 = "", icon2 = "", placeholder = "", secure = false, value = "", label = "", onFocus
 }: InputTextProps) => {
 
     const [text, setText] = useState(value)
@@ -36,7 +37,8 @@ const InputText = ({
                     value={text}
                     placeholder={placeholder}
                     secureTextEntry={secure}
-                    placeholderTextColor="#867f75" />
+                    placeholderTextColor="#867f75"
+                    onFocus={onFocus} />
 
                 <Image source={icon2} style={styles_InputText.icon} />
             </View>
