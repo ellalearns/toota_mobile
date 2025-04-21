@@ -2,19 +2,20 @@ import BackButton from "@/components/BackButton";
 import InputText from "@/components/InputText";
 import LinkText from "@/components/LinkText";
 import MainButton from "@/components/MainButton";
-import PageIcon from "@/components/PageIcon";
-import SignInOption from "@/components/signInOption";
 import ViewBreak from "@/components/ViewBreak";
 import images from "@/constants/images";
 import copy from "@/constants/texts";
 import styles_SignUp from "@/styles/styles_SignUp";
-import React, { useState } from "react";
-import { Text, View, Image, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, ScrollView, NativeModules, KeyboardAvoidingViewComponent } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const SignUp = () => {
 
-    const [keyboardVisible, setKeyboardVisible] = useState(false)
+    const [ email, setEmail ] = useState("")
+    const [ isEmail, setIsEmail ] = useState(false)
+
+    const [ keyboardVisible, setKeyboardVisible ] = useState(false)
 
     const onDismissKeyboard = () => {
         Keyboard.dismiss()
@@ -25,7 +26,10 @@ const SignUp = () => {
         setKeyboardVisible(true)
     }
 
-    let email = ""
+    useEffect(() => {
+        const hideKB = Keyboard.addListener("keyboardDidHide", () => {setKeyboardVisible(false)})
+        return () => hideKB.remove()
+    }, [])
 
     const createAccount = () => { }
 
@@ -47,9 +51,7 @@ const SignUp = () => {
                         <Text style={styles_SignUp.signup2}>{copy.signup2}</Text>
                     </View>
 
-                    {/* <View style={styles_SignUp.viewBreak}> */}
                     <ViewBreak />
-                    {/* </View> */}
 
                     <View style={styles_SignUp.emailView}>
                         <InputText icon1={images.phone}
@@ -57,7 +59,8 @@ const SignUp = () => {
                             placeholder="Please enter your email" 
                             value={email} 
                             secure={false} 
-                            onFocus={onEnterKeyboard}/>
+                            onFocus={onEnterKeyboard}
+                            onChange={() => setIsEmail(true)}/>
                     </View>
 
                     <View style={styles_SignUp.lineView}>
@@ -76,7 +79,7 @@ const SignUp = () => {
 
                 <View>
                     <View style={styles_SignUp.buttonView}>
-                        <MainButton text="Create account" pressFun={() => { }} />
+                        <MainButton text="Create account" pressFun={() => { }} isEmpty={isEmail} />
                     </View>
 
                     {keyboardVisible ? null : <View>

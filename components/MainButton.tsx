@@ -1,16 +1,24 @@
 import React from "react"
-import { TouchableOpacity, Text } from "react-native"
+import { TouchableOpacity, Text, ToastAndroid } from "react-native"
 import stylesMainButton from "@/styles/styles_MainButton"
 
 type MainButtonProps = {
     text: string,
-    pressFun: () => void
+    pressFun: () => void,
+    isEmpty?: boolean
 }
 
-const MainButton = ({text, pressFun}: MainButtonProps) => {
+const MainButton = ({text, pressFun, isEmpty = false}: MainButtonProps) => {
     return (
-        <TouchableOpacity style={[stylesMainButton.continueButton]}
-            onPress={pressFun}>
+        <TouchableOpacity style={[stylesMainButton.continueButton, isEmpty === false ? stylesMainButton.disabledButton : stylesMainButton.activeButton]}
+            onPress={() => {
+                if (isEmpty === false) {
+                    pressFun
+                } else {
+                    ToastAndroid.show("email is not valid", 1000)
+                    return
+                }
+            }}>
             <Text style={[stylesMainButton.continueText]}>{text}</Text>
         </TouchableOpacity>
     )
