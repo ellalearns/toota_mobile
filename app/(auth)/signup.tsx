@@ -60,7 +60,8 @@ const SignUp = () => {
                             value={email} 
                             secure={false} 
                             onFocus={onEnterKeyboard}
-                            onChange={() => setIsEmail(true)}/>
+                            onChange={() => setIsEmail(true)}
+                            enterKeyHint="send" />
                     </View>
 
                     <View style={styles_SignUp.lineView}>

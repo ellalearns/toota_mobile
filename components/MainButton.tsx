@@ -13,10 +13,10 @@ const MainButton = ({text, pressFun, isEmpty = false}: MainButtonProps) => {
         <TouchableOpacity style={[stylesMainButton.continueButton, isEmpty === false ? stylesMainButton.disabledButton : stylesMainButton.activeButton]}
             onPress={() => {
                 if (isEmpty === false) {
-                    pressFun
-                } else {
                     ToastAndroid.show("email is not valid", 1000)
                     return
+                } else {
+                    pressFun
                 }
             }}>
             <Text style={[stylesMainButton.continueText]}>{text}</Text>

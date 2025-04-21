@@ -1,6 +1,6 @@
 import styles_InputText from "@/styles/styles_inputText";
 import React, { useState } from "react";
-import { View, TextInput, Text, Image } from "react-native";
+import { View, TextInput, Text, Image, EnterKeyHintTypeOptions } from "react-native";
 
 type InputTextProps = {
     icon1: any,
@@ -10,11 +10,12 @@ type InputTextProps = {
     value: string,
     label: string,
     onFocus?: () => void,
-    onChange?: () => void
+    onChange?: () => void,
+    enterKeyHint?: string
 }
 
 const InputText = ({
-    icon1 = "", icon2 = "", placeholder = "", secure = false, value = "", label = "", onFocus, onChange
+    icon1 = "", icon2 = "", placeholder = "", secure = false, value = "", label = "", enterKeyHint = "done", onFocus, onChange
 }: InputTextProps) => {
 
     const [text, setText] = useState(value)
@@ -40,7 +41,8 @@ const InputText = ({
                     secureTextEntry={secure}
                     placeholderTextColor="#867f75"
                     onFocus={onFocus}
-                    onChange={onChange} />
+                    onChange={onChange}
+                    enterKeyHint={enterKeyHint as EnterKeyHintTypeOptions} />
 
                 <Image source={icon2} style={styles_InputText.icon} />
             </View>
