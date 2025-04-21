@@ -16,7 +16,7 @@ const MainButton = ({text, pressFun, isEmpty = false}: MainButtonProps) => {
                     ToastAndroid.show("email is not valid", 1000)
                     return
                 } else {
-                    pressFun
+                    pressFun()
                 }
             }}>
             <Text style={[stylesMainButton.continueText]}>{text}</Text>

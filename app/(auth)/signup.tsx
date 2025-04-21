@@ -6,11 +6,14 @@ import ViewBreak from "@/components/ViewBreak";
 import images from "@/constants/images";
 import copy from "@/constants/texts";
 import styles_SignUp from "@/styles/styles_SignUp";
+import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard } from "react-native";
+import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard, ToastAndroid } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const SignUp = () => {
+
+    const router = useRouter()
 
     const [ email, setEmail ] = useState("")
     const [ isEmail, setIsEmail ] = useState(false)
@@ -31,7 +34,9 @@ const SignUp = () => {
         return () => hideKB.remove()
     }, [])
 
-    const createAccount = () => { }
+    const createAccount = () => { 
+        router.navigate("/(auth)/verifyEmail")
+    }
 
     return (
         <SafeAreaProvider>
@@ -80,7 +85,7 @@ const SignUp = () => {
 
                 <View>
                     <View style={styles_SignUp.buttonView}>
-                        <MainButton text="Create account" pressFun={() => { }} isEmpty={isEmail} />
+                        <MainButton text="Create account" pressFun={createAccount} isEmpty={isEmail} />
                     </View>
 
                     {keyboardVisible ? null : <View>
