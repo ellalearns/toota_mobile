@@ -19,7 +19,8 @@ const images = {
     lock: require("../assets/images/lock-open.png"),
     closedEye: require("../assets/images/eye-slash.png"),
     eclipse: require("../assets/images/eclipse.png"),
-    backspace: require("../assets/images/backspace.png")
+    backspace: require("../assets/images/backspace.png"),
+    profile: require("../assets/images/profile.png")
 }
 
 export default images

@@ -21,6 +21,10 @@ const styles_SignUp = StyleSheet.create({
         paddingLeft: 20,
         marginTop: 24
     },
+    emailViewActive: {
+        paddingTop: 8,
+        paddingLeft: 20
+    },
     lineView: {
         marginTop: 16,
         alignSelf: "center",

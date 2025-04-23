@@ -19,16 +19,16 @@ export default function Index() {
   });
 
   return (
-    
+
     // (splashScreen) ? <SplashScreen /> : <Role />
 
     // <WelcomeScreen />
 
     // <TootaIntro />
 
-    // <SignUp />
+    <SignUp />
 
-    <VerifyEmail email="ella@gmail.com" />
+    // <VerifyEmail email="ella@gmail.com" />
 
   );
 }

@@ -8,17 +8,21 @@ import copy from "@/constants/texts";
 import styles_SignUp from "@/styles/styles_SignUp";
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
-import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard, ToastAndroid } from "react-native";
+import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard, ToastAndroid, KeyboardAvoidingViewComponent, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const SignUp = () => {
 
     const router = useRouter()
 
-    const [ email, setEmail ] = useState("")
-    const [ isEmail, setIsEmail ] = useState(false)
+    const [email, setEmail] = useState("")
+    const [isEmail, setIsEmail] = useState(false)
 
-    const [ keyboardVisible, setKeyboardVisible ] = useState(false)
+    const [password, setPassword] = useState("")
+    const [isPassword, setIsPassword] = useState(false)
+    const [hidden, setHidden] = useState(true)
+
+    const [keyboardVisible, setKeyboardVisible] = useState(false)
 
     const onDismissKeyboard = () => {
         Keyboard.dismiss()
@@ -30,12 +34,20 @@ const SignUp = () => {
     }
 
     useEffect(() => {
-        const hideKB = Keyboard.addListener("keyboardDidHide", () => {setKeyboardVisible(false)})
+        const hideKB = Keyboard.addListener("keyboardDidHide", () => { setKeyboardVisible(false) })
         return () => hideKB.remove()
     }, [])
 
-    const createAccount = () => { 
+    const createAccount = () => {
         router.navigate("/(auth)/verifyEmail")
+    }
+
+    const showPassword = () => {
+        return (
+            <TouchableOpacity onPress={() => setHidden(false)}>
+                <Image source={images.closedEye} />
+            </TouchableOpacity>
+        )
     }
 
     return (
@@ -58,34 +70,47 @@ const SignUp = () => {
 
                     <ViewBreak />
 
-                    <View style={styles_SignUp.emailView}>
-                        <InputText icon1={images.phone}
-                            label="Email" 
-                            placeholder="Please enter your email" 
-                            value={email} 
-                            secure={false} 
+                    <View style={keyboardVisible ? styles_SignUp.emailViewActive : styles_SignUp.emailView}>
+                        <InputText icon1={images.profile}
+                            label="Email"
+                            placeholder="Please enter your email"
+                            value={email}
+                            secure={false}
                             onFocus={onEnterKeyboard}
                             onChange={() => setIsEmail(true)}
+                            enterKeyHint="next" />
+                    </View>
+
+                    <View style={keyboardVisible ? styles_SignUp.emailViewActive : styles_SignUp.emailView}>
+                        <InputText icon1={images.lock}
+                            icon2={images.closedEye}
+                            icon2fun={() => setHidden(!hidden)}
+                            label="Password"
+                            placeholder="Please enter your password"
+                            value={password}
+                            secure={hidden}
+                            onFocus={onEnterKeyboard}
+                            onChange={() => setIsPassword(true)}
                             enterKeyHint="send" />
                     </View>
 
-                    <View style={styles_SignUp.lineView}>
+                    {keyboardVisible ? null : <View style={styles_SignUp.lineView}>
                         <Image source={images.line} />
                         <Image source={images.line} />
-                    </View>
+                    </View>}
 
-                    <View style={styles_SignUp.policyView}>
+                    {keyboardVisible ? null : <View style={styles_SignUp.policyView}>
                         <Text style={styles_SignUp.policyText}>By creating an account you accept our </Text>
                         <LinkText text="Terms and Conditions" action={() => { }} />
                         <Text style={styles_SignUp.policyText}> and acknowledge our </Text>
                         <LinkText text="Privacy Policy." action={() => { }} />
-                    </View>
+                    </View>}
 
                 </View>
 
                 <View>
                     <View style={styles_SignUp.buttonView}>
-                        <MainButton text="Create account" pressFun={createAccount} isEmpty={isEmail} />
+                        <MainButton text="Create account" pressFun={createAccount} isEmpty={isEmail && isPassword} />
                     </View>
 
                     {keyboardVisible ? null : <View>
