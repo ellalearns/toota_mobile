@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard, ToastAndroid, KeyboardAvoidingViewComponent, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-const SignUp = () => {
+const Auth = () => {
 
     const router = useRouter()
 
@@ -124,4 +124,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default Auth

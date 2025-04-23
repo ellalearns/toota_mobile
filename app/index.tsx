@@ -5,7 +5,7 @@ import MainAppPage from "./main_app";
 import Role from "./(onboarding)/role";
 import WelcomeScreen from "./(auth)/welcomeScreen";
 import TootaIntro from "./(onboarding)/intro";
-import SignUp from "./(auth)/signup";
+import Auth from "./(auth)/auth";
 import VerifyEmail from "./(auth)/verifyEmail";
 
 export default function Index() {
@@ -26,7 +26,7 @@ export default function Index() {
 
     // <TootaIntro />
 
-    <SignUp />
+    <Auth />
 
     // <VerifyEmail email="ella@gmail.com" />
 
