@@ -44,7 +44,12 @@ const Auth = () => {
     }, [])
 
     const createAccount = () => {
-        router.navigate("/(auth)/verifyEmail")
+        router.push({
+            pathname: "/verifyEmail",
+            params: {
+                email: email
+            }
+        })
     }
 
     const showPassword = () => {
@@ -83,8 +88,9 @@ const Auth = () => {
                             value={email}
                             secure={false}
                             onFocus={onEnterKeyboard}
-                            onChange={() => setIsEmail(true)}
-                            enterKeyHint="next" />
+                            onChange={() => {setIsEmail(true)}}
+                            enterKeyHint="next"
+                            onChangeText={setEmail} />
                     </View>
 
                     <View style={keyboardVisible ? styles_SignUp.emailViewActive : styles_SignUp.emailView}>
@@ -97,7 +103,8 @@ const Auth = () => {
                             secure={hidden}
                             onFocus={onEnterKeyboard}
                             onChange={() => setIsPassword(true)}
-                            enterKeyHint="send" />
+                            enterKeyHint="send"
+                            onChangeText={setPassword} />
                     </View>
 
                     {keyboardVisible || action === "login" ? null : <View style={styles_SignUp.lineView}>

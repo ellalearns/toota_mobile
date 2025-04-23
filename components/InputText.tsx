@@ -12,11 +12,12 @@ type InputTextProps = {
     label: string,
     onFocus?: () => void,
     onChange?: () => void,
-    enterKeyHint?: string
+    enterKeyHint?: string,
+    onChangeText: (value: string) => void
 }
 
 const InputText = ({
-    icon1 = "", icon2 = "", icon2fun, placeholder = "", secure = false, value = "", label = "", enterKeyHint = "done", onFocus, onChange
+    icon1 = "", icon2 = "", icon2fun, placeholder = "", secure = false, value = "", label = "", enterKeyHint = "done", onFocus, onChange, onChangeText
 }: InputTextProps) => {
 
     const [text, setText] = useState(value)
@@ -34,8 +35,9 @@ const InputText = ({
                 <TextInput
                     style={styles_InputText.text}
                     onChangeText={(newText) => {
-                        setText(newText),
-                            value = text
+                        setText(newText)
+                        onChangeText(newText)
+                        value = newText
                     }}
                     value={text}
                     placeholder={placeholder}

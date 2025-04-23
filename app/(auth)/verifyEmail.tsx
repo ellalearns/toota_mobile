@@ -5,6 +5,7 @@ import OTPFrame from "@/components/OTPFrame";
 import OutlineButton from "@/components/OutlineButton";
 import ViewBreak from "@/components/ViewBreak";
 import Styles_VerifyEmail from "@/styles/styles_VerifyEmail";
+import { useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, ToastAndroid } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -13,7 +14,8 @@ type VerifyEmailProps = {
     email: string
 }
 
-const VerifyEmail = ({ email } : VerifyEmailProps) => {
+const VerifyEmail = () => {
+    const { email } = useLocalSearchParams<VerifyEmailProps>()
 
     const [ OTP, setOTP ] = useState([-1, -1, -1, -1])
     const [ currentPosition, setCurrentPosition] = useState(0)
