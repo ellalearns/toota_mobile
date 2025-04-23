@@ -28,7 +28,7 @@ export default function Index() {
 
     // <SignUp />
 
-    <VerifyEmail />
+    <VerifyEmail email="ella@gmail.com" />
 
   );
 }

@@ -5,16 +5,27 @@ import OTPFrame from "@/components/OTPFrame";
 import OutlineButton from "@/components/OutlineButton";
 import ViewBreak from "@/components/ViewBreak";
 import Styles_VerifyEmail from "@/styles/styles_VerifyEmail";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SafeAreaView, View, Text, ToastAndroid } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-const VerifyEmail = () => {
+type VerifyEmailProps = {
+    email: string
+}
+
+const VerifyEmail = ({ email } : VerifyEmailProps) => {
 
     const [ OTP, setOTP ] = useState([-1, -1, -1, -1])
     const [ currentPosition, setCurrentPosition] = useState(0)
 
-    const [ testOtp, setTestOtp ] = useState(0)
+    const checkOTPStatus = () => {
+        for (const num of OTP) {
+            if (num === -1) {
+                return false
+            }
+        }
+        return true
+    }
 
     return (
         <SafeAreaProvider>
@@ -25,7 +36,7 @@ const VerifyEmail = () => {
                 <View style={Styles_VerifyEmail.default_padding}>
                     <Text  style={Styles_VerifyEmail.header_text}>OTP Verification</Text>
                     <Text style={Styles_VerifyEmail.body_text}>To complete your sign-up, please enter the OTP sent to your email  
-                        <Text style={Styles_VerifyEmail.email}> urmail@gmail.com</Text>
+                        <Text style={Styles_VerifyEmail.email}>{" => " + email}</Text>
                         </Text>
                 </View>
                 <ViewBreak />
@@ -34,7 +45,7 @@ const VerifyEmail = () => {
                     <NumberFrame otp={OTP} setOtp={setOTP} currentPosition={currentPosition} setCurrentPosition={setCurrentPosition} />
                 </View>
                 <View style={Styles_VerifyEmail.default_padding}>
-                    <MainButton text="Continue" pressFun={() => { }} isEmpty />
+                    <MainButton text="Continue" pressFun={() => { }} isEmpty={checkOTPStatus()} />
                     <OutlineButton text="Resend code" pressFun={() => { }} />
                 </View>
             </SafeAreaView>
