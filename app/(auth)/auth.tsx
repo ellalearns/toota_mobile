@@ -7,11 +7,15 @@ import images from "@/constants/images";
 import copy from "@/constants/texts";
 import styles_SignUp from "@/styles/styles_SignUp";
 import { useRouter } from "expo-router";
-import React, { useEffect, useState } from "react";
+import React, { act, useEffect, useState } from "react";
 import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard, ToastAndroid, KeyboardAvoidingViewComponent, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-const Auth = () => {
+type AuthProps = {
+    action: "signup" | "login"
+}
+
+const Auth = ({ action } : AuthProps) => {
 
     const router = useRouter()
 
@@ -64,8 +68,8 @@ const Auth = () => {
                     </View>
 
                     <View style={styles_SignUp.textView}>
-                        <Text style={styles_SignUp.signup1}>{copy.signup1}</Text>
-                        <Text style={styles_SignUp.signup2}>{copy.signup2}</Text>
+                        <Text style={styles_SignUp.signup1}>{action === "signup" ? copy.signup1 : copy.login1}</Text>
+                        <Text style={styles_SignUp.signup2}>{action === "signup" ? copy.signup2 : copy.login2}</Text>
                     </View>
 
                     <ViewBreak />
@@ -94,12 +98,12 @@ const Auth = () => {
                             enterKeyHint="send" />
                     </View>
 
-                    {keyboardVisible ? null : <View style={styles_SignUp.lineView}>
+                    {keyboardVisible || action === "login" ? null : <View style={styles_SignUp.lineView}>
                         <Image source={images.line} />
                         <Image source={images.line} />
                     </View>}
 
-                    {keyboardVisible ? null : <View style={styles_SignUp.policyView}>
+                    {keyboardVisible || action === "login" ? null : <View style={styles_SignUp.policyView}>
                         <Text style={styles_SignUp.policyText}>By creating an account you accept our </Text>
                         <LinkText text="Terms and Conditions" action={() => { }} />
                         <Text style={styles_SignUp.policyText}> and acknowledge our </Text>
@@ -110,11 +114,11 @@ const Auth = () => {
 
                 <View>
                     <View style={styles_SignUp.buttonView}>
-                        <MainButton text="Create account" pressFun={createAccount} isEmpty={isEmail && isPassword} />
+                        <MainButton text={action === "signup" ? "Create account" : "Login"} pressFun={createAccount} isEmpty={isEmail && isPassword} />
                     </View>
 
                     {keyboardVisible ? null : <View>
-                        <LinkText text="I already have an account" action={() => { }} />
+                        <LinkText text={action === "signup" ? "I already have an account" : "I don't have an account"} action={() => { }} />
                     </View>}
 
                 </View>

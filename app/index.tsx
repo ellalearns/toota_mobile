@@ -26,7 +26,7 @@ export default function Index() {
 
     // <TootaIntro />
 
-    <Auth />
+    <Auth action="login" />
 
     // <VerifyEmail email="ella@gmail.com" />
 
