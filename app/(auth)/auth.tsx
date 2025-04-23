@@ -6,7 +6,7 @@ import ViewBreak from "@/components/ViewBreak";
 import images from "@/constants/images";
 import copy from "@/constants/texts";
 import styles_SignUp from "@/styles/styles_SignUp";
-import { useRouter } from "expo-router";
+import { Link, useLocalSearchParams, useRouter } from "expo-router";
 import React, { act, useEffect, useState } from "react";
 import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard, ToastAndroid, KeyboardAvoidingViewComponent, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -15,7 +15,8 @@ type AuthProps = {
     action: "signup" | "login"
 }
 
-const Auth = ({ action } : AuthProps) => {
+const Auth = () => {
+    const { action = "signup"} = useLocalSearchParams<AuthProps>()
 
     const router = useRouter()
 
@@ -64,7 +65,8 @@ const Auth = ({ action } : AuthProps) => {
                 <View style={styles_SignUp.view1}>
 
                     <View style={styles_SignUp.backView}>
-                        <BackButton onPress={() => { }} />
+                       
+                        <BackButton onPress={() => router.back()} />
                     </View>
 
                     <View style={styles_SignUp.textView}>
@@ -118,7 +120,13 @@ const Auth = ({ action } : AuthProps) => {
                     </View>
 
                     {keyboardVisible ? null : <View>
-                        <LinkText text={action === "signup" ? "I already have an account" : "I don't have an account"} action={() => { }} />
+                        <LinkText 
+                            text={action === "signup" ? "I already have an account" : "I don't have an account"} 
+                            action={() => {
+                                if (action === "signup") {
+                                    router.push({pathname: "/auth", params: {action: "login"}})
+                                } else { router.push({pathname: "/auth", params: {action: "signup"}}) }
+                            }} />
                     </View>}
 
                 </View>

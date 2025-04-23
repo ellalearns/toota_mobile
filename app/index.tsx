@@ -20,13 +20,13 @@ export default function Index() {
 
   return (
 
-    // (splashScreen) ? <SplashScreen /> : <Role />
+    (splashScreen) ? <SplashScreen /> : <Role />
 
     // <WelcomeScreen />
 
     // <TootaIntro />
 
-    <Auth action="login" />
+    // <Auth action="signup" />
 
     // <VerifyEmail email="ella@gmail.com" />
 

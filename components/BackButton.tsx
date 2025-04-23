@@ -4,7 +4,7 @@ import React from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 
 type BackButtonProps = {
-    onPress: () => void
+    onPress?: () => void
 }
 
 const BackButton = ({ onPress }: BackButtonProps) => {
