@@ -9,7 +9,13 @@ const Styles_OTPFrame = StyleSheet.create({
         width: 75.5,
         height: 68,
         backgroundColor: "#fef5e8",
-        borderRadius: 12
+        borderRadius: 12,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    text: {
+        fontSize: 32,
+        color: "black"
     }
 })
 

@@ -5,11 +5,17 @@ import OTPFrame from "@/components/OTPFrame";
 import OutlineButton from "@/components/OutlineButton";
 import ViewBreak from "@/components/ViewBreak";
 import Styles_VerifyEmail from "@/styles/styles_VerifyEmail";
-import React from "react";
-import { SafeAreaView, View, Text } from "react-native";
-import { SafeAreaFrameContext, SafeAreaProvider } from "react-native-safe-area-context";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView, View, Text, ToastAndroid } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const VerifyEmail = () => {
+
+    const [ OTP, setOTP ] = useState([-1, -1, -1, -1])
+    const [ currentPosition, setCurrentPosition] = useState(0)
+
+    const [ testOtp, setTestOtp ] = useState(0)
+
     return (
         <SafeAreaProvider>
             <SafeAreaView style={Styles_VerifyEmail.main}>
@@ -24,8 +30,8 @@ const VerifyEmail = () => {
                 </View>
                 <ViewBreak />
                 <View style={Styles_VerifyEmail.default_padding}>
-                    <OTPFrame />
-                    <NumberFrame />
+                    <OTPFrame otp={OTP}/>
+                    <NumberFrame otp={OTP} setOtp={setOTP} currentPosition={currentPosition} setCurrentPosition={setCurrentPosition} />
                 </View>
                 <View style={Styles_VerifyEmail.default_padding}>
                     <MainButton text="Continue" pressFun={() => { }} isEmpty />

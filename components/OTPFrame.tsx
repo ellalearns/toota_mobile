@@ -1,14 +1,19 @@
 import Styles_OTPFrame from "@/styles/styles_OTPFrame";
 import React from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
-const OTPFrame = () => {
+type OTPFrameProps = {
+    otp: Array<number>
+}
+
+const OTPFrame = ({ otp }: OTPFrameProps) => {
     return (
         <View style={Styles_OTPFrame.main}>
-            <View style={Styles_OTPFrame.each} key={1}></View>
-            <View style={Styles_OTPFrame.each} key={2}></View>
-            <View style={Styles_OTPFrame.each} key={3}></View>
-            <View style={Styles_OTPFrame.each} key={4}></View>
+            {[...Array(4)].map((_, i) =>
+                <View style={Styles_OTPFrame.each} key={i}>
+                    <Text style={Styles_OTPFrame.text}>{otp[i] === -1 ? null : otp[i]}</Text>
+                </View>
+            )}
         </View>
     )
 }

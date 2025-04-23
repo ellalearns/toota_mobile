@@ -24,11 +24,11 @@ const TootaIntro = () => {
             setCurrentPostion(currentPosition + 1)
             return
         }
-        router.navigate("/login")
+        router.navigate("/signup")
     }
 
     const toLogin = () => {
-        router.navigate("/login")
+        router.navigate("/signup")
     }
 
     return (
@@ -51,7 +51,7 @@ const TootaIntro = () => {
                         </View>
                     </View>
                     <View style={styles_intro.buttonView}>
-                        <MainButton text={currentPosition == 2 ? "Sign up" : "Next"} pressFun={pressNext} />
+                        <MainButton text={currentPosition == 2 ? "Sign up" : "Next"} pressFun={pressNext} isEmpty />
                     </View>
                 </View>
             </SafeAreaView>

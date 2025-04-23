@@ -41,7 +41,7 @@ const WelcomeScreen = () => {
 
                 <View>
 
-                    <MainButton text="Create an account" pressFun={onCreatePress} />
+                    <MainButton text="Create an account" pressFun={onCreatePress} isEmpty />
 
                     <View style={styles.rowFlex}>
                         <Image source={images.line} />
