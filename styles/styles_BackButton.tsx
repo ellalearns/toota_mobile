@@ -6,8 +6,8 @@ const styles_BackButton = StyleSheet.create({
         height: 50,
         backgroundColor: "#fef5e8",
         borderRadius: 10,
-        marginTop: 32,
-        marginLeft: 20,
+        // marginTop: 32,
+        // marginLeft: 20,
         justifyContent: "center",
         alignItems: "center"
     }
