@@ -5,6 +5,7 @@ import MainButton from "@/components/MainButton";
 import ViewBreak from "@/components/ViewBreak";
 import images from "@/constants/images";
 import copy from "@/constants/texts";
+import signUp from "@/services/signUp";
 import styles_SignUp from "@/styles/styles_SignUp";
 import { Link, useLocalSearchParams, useRouter } from "expo-router";
 import React, { act, useEffect, useState } from "react";
@@ -44,6 +45,14 @@ const Auth = () => {
     }, [])
 
     const createAccount = () => {
+
+        const newUser = {
+            "email": email,
+            "password": password
+        }
+
+        signUp({ data : newUser })
+
         router.push({
             pathname: "/verifyEmail",
             params: {
