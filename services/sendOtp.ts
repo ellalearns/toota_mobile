@@ -10,7 +10,7 @@ const sendOtp = async ({ data }: { data : object}) => {
     })
 
     if (!response.ok) {
-        throw new Error("something wrong with the otp", {cause: response.statusText})
+        return new Error("something wrong with the otp", {cause: response.statusText})
     }
 
     const isUser = await response.json()

@@ -6,7 +6,7 @@ import OutlineButton from "@/components/OutlineButton";
 import ViewBreak from "@/components/ViewBreak";
 import sendOtp from "@/services/sendOtp";
 import Styles_VerifyEmail from "@/styles/styles_VerifyEmail";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, ToastAndroid } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -17,6 +17,8 @@ type VerifyEmailProps = {
 
 const VerifyEmail = () => {
     const { email } = useLocalSearchParams<VerifyEmailProps>()
+
+    const router = useRouter()
 
     const [ OTP, setOTP ] = useState([-1, -1, -1, -1])
     const [ currentPosition, setCurrentPosition] = useState(0)
@@ -38,13 +40,19 @@ const VerifyEmail = () => {
         return otp
     }
 
-    const sendOTP = () => {
+    const sendOTP = async () => {
         const userOTP = {
             "email": email,
             "otp": getOTP(OTP)
         }
 
-        sendOtp({ data: userOTP })
+        const otp = await sendOtp({ data: userOTP })
+
+        if (otp instanceof Error) {
+            ToastAndroid.show("wrong otp", 1000)
+        } else {
+            router.push("/main_app")
+        }
     }
 
     return (

@@ -26,7 +26,8 @@
     },
     "plugins": [
       "expo-router",
-      "./plugins/withAdjustPan"
+      "./plugins/withAdjustPan",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
