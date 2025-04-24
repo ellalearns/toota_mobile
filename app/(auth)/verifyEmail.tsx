@@ -4,6 +4,7 @@ import NumberFrame from "@/components/NumberFrame";
 import OTPFrame from "@/components/OTPFrame";
 import OutlineButton from "@/components/OutlineButton";
 import ViewBreak from "@/components/ViewBreak";
+import sendOtp from "@/services/sendOtp";
 import Styles_VerifyEmail from "@/styles/styles_VerifyEmail";
 import { useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
@@ -29,6 +30,23 @@ const VerifyEmail = () => {
         return true
     }
 
+    const getOTP = (arr : Array<number>) => {
+        let otp = ""
+        for (const a in arr) {
+            otp += arr[a].toString()
+        }
+        return otp
+    }
+
+    const sendOTP = () => {
+        const userOTP = {
+            "email": email,
+            "otp": getOTP(OTP)
+        }
+
+        sendOtp({ data: userOTP })
+    }
+
     return (
         <SafeAreaProvider>
             <SafeAreaView style={Styles_VerifyEmail.main}>
@@ -47,7 +65,7 @@ const VerifyEmail = () => {
                     <NumberFrame otp={OTP} setOtp={setOTP} currentPosition={currentPosition} setCurrentPosition={setCurrentPosition} />
                 </View>
                 <View style={Styles_VerifyEmail.default_padding}>
-                    <MainButton text="Continue" pressFun={() => { }} isEmpty={checkOTPStatus()} />
+                    <MainButton text="Continue" pressFun={sendOTP} isEmpty={checkOTPStatus()} isEmptyMessage="incomplete otp" />
                     <OutlineButton text="Resend code" pressFun={() => { }} />
                 </View>
             </SafeAreaView>

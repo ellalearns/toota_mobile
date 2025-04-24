@@ -8,7 +8,6 @@ const signUp = async({ data }: { data : object }) => {
         headers: TootaAPIConfig.headersPost,
         body: JSON.stringify(data)
     })
-    console.log(response)
 
     if (!response.ok) {
         throw new Error("unable to create user", {cause: response.statusText})
@@ -16,7 +15,7 @@ const signUp = async({ data }: { data : object }) => {
 
     const userData = await response.json() 
     
-    return userData.results
+    return userData
 }
 
 export default signUp
