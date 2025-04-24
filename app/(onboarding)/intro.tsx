@@ -24,11 +24,11 @@ const TootaIntro = () => {
             setCurrentPostion(currentPosition + 1)
             return
         }
-        router.navigate("/login")
+        router.push({pathname: "/auth", params: {action: "signup"}})
     }
 
-    const toLogin = () => {
-        router.navigate("/login")
+    const toAuth = () => {
+        router.push({pathname: "/auth", params: {action: "signup"}})
     }
 
     return (
@@ -37,7 +37,7 @@ const TootaIntro = () => {
                 <ImageBackground source={imageList[currentPosition]} style={styles_intro.image} />
 
                 <View style={styles_intro.skipView}>
-                    <SkipButton onPress={toLogin} />
+                    <SkipButton onPress={toAuth} />
                 </View>
 
                 <View style={styles_intro.actionView}>
@@ -51,7 +51,7 @@ const TootaIntro = () => {
                         </View>
                     </View>
                     <View style={styles_intro.buttonView}>
-                        <MainButton text={currentPosition == 2 ? "Sign up" : "Next"} pressFun={pressNext} />
+                        <MainButton text={currentPosition == 2 ? "Sign up" : "Next"} pressFun={pressNext} isEmpty />
                     </View>
                 </View>
             </SafeAreaView>

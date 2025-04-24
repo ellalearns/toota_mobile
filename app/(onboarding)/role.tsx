@@ -46,10 +46,10 @@ const Role = () => {
 
             <View style={styles.bottomFlex}>
                 <TouchableOpacity style={[styles.continueButton, roleSelected ? styles.selectedContinueButton : null]}
-                onPress={() => {roleSelected ? router.navigate("/(auth)/welcomeScreen") : ToastAndroid.showWithGravity("please choose a role", 1000, ToastAndroid.TOP)}}>
+                onPress={() => {roleSelected ? router.push("/(auth)/welcomeScreen") : ToastAndroid.showWithGravity("please choose a role", 1000, ToastAndroid.TOP)}}>
                 <Text style={[styles.continueText, roleSelected ? styles.selectedContinueText : null]}>Continue</Text>
                 </TouchableOpacity>
-                <Link href="/main_app"><Text style={[styles.continueText, styles.signInText]}>I already have an account</Text></Link>
+                <Link href={{pathname: "/auth", params: { action: "login"}}}><Text style={[styles.continueText, styles.signInText]}>I already have an account</Text></Link>
             </View>
 
         </View>

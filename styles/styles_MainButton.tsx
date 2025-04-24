@@ -2,8 +2,15 @@ import { StyleSheet } from "react-native"
 
 const stylesMainButton = StyleSheet.create({
 
+    disabledButton: {
+        backgroundColor: "#fde1b8"
+    },
+
+    activeButton: {
+        backgroundColor: "#f99e1a"
+    },
+
     continueButton: {
-        backgroundColor: "#f99e1a",
         width: 330,
         height: 60,
         borderRadius: 50,
