@@ -1,15 +1,18 @@
-import { Text, View } from "react-native";
+import { useState, useEffect } from "react";
+import SplashScreen from "./splash_screen";
+import Role from "./(onboarding)/role";
 
 export default function Index() {
+
+  const [splashScreen, setSplashScreen] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSplashScreen(false)
+    }, 2000)
+  });
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Afresh</Text>
-    </View>
+    (splashScreen) ? <SplashScreen /> : <Role />
   );
 }
