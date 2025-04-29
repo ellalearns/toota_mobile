@@ -11,6 +11,7 @@ import styles_SignUp from "@/styles/styles_SignUp";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { Text, View, Image, KeyboardAvoidingView, Platform, Keyboard, ToastAndroid } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 type AuthProps = {
     action: "signup" | "login"
@@ -84,7 +85,8 @@ const Auth = () => {
     }
 
     return (
-        <View>
+        // <SafeAreaProvider>
+        <View style={styles_SignUp.main}>
             <KeyboardAvoidingView style={styles_SignUp.main}
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
                 onTouchStart={onDismissKeyboard}
@@ -163,6 +165,7 @@ const Auth = () => {
 
             </KeyboardAvoidingView>
         </View>
+        // </SafeAreaProvider>
     )
 }
 
