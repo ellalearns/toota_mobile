@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+//comment
 
 const styles_SignUp = StyleSheet.create({
     main: {
