@@ -9,14 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.toota.toota-mobile"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.ellangoziagu.toota_mobile"
+      "package": "com.toota.toota_mobile"
     },
     "web": {
       "bundler": "metro",
@@ -45,6 +46,7 @@
       "eas": {
         "projectId": "ccb76452-e5f8-4057-8a5a-bf6a7e2a05cd"
       }
-    }
+    },
+    "owner": "ellangoziagu"
   }
 }
