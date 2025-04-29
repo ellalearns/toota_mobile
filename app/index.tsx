@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Text, View } from "react-native";
 import SplashScreen from "./splash_screen";
 import Role from "./(onboarding)/role";
 
@@ -14,5 +15,8 @@ export default function Index() {
 
   return (
     (splashScreen) ? <SplashScreen /> : <Role />
+    // <View>
+    //   <Text>Working on Local Phone</Text>
+    // </View>
   );
 }
