@@ -8,7 +8,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import LinkText from "@/components/LinkText";
 
-const WelcomeScreen = () => {
+export default function WelcomeScreen () {
 
     const router = useRouter()
 
@@ -72,7 +72,7 @@ const WelcomeScreen = () => {
 
 }
 
-export default WelcomeScreen
+// export default WelcomeScreen
 
 
 const styles = StyleSheet.create({

@@ -3,7 +3,7 @@ import { Dimensions, Image, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient"
 import images from "@/constants/images";
 
-const SplashScreen = () => {
+export default function SplashScreen () {
 
     const { width, height } = Dimensions.get("screen")
 
@@ -85,4 +85,4 @@ const SplashScreen = () => {
 
 }
 
-export default SplashScreen
+// export default SplashScreen
