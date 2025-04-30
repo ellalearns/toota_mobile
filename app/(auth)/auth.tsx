@@ -17,7 +17,7 @@ type AuthProps = {
     action: "signup" | "login"
 }
 
-const Auth = () => {
+export default function Auth () {
     const { action = "signup" } = useLocalSearchParams<AuthProps>()
 
     const router = useRouter()
@@ -169,4 +169,4 @@ const Auth = () => {
     )
 }
 
-export default Auth
+// export default Auth

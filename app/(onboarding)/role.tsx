@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, ToastAndroid, TouchableOpacity, View } from "r
 import images from "@/constants/images";
 import { Link, useRouter } from "expo-router";
 
-const Role = () => {
+export default function Role () {
 
     const router = useRouter();
 
@@ -56,7 +56,7 @@ const Role = () => {
     )
 }
 
-export default Role
+// export default Role
 
 const styles = StyleSheet.create({
     roleBox: {

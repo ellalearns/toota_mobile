@@ -7,7 +7,7 @@ import images from "@/constants/images";
 import MainButton from "@/components/MainButton";
 import { useRouter } from "expo-router";
 
-const TootaIntro = () => {
+export default function TootaIntro () {
 
     const router = useRouter()
 
@@ -56,4 +56,4 @@ const TootaIntro = () => {
     )
 }
 
-export default TootaIntro
+// export default TootaIntro

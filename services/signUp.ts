@@ -1,3 +1,4 @@
+import { ToastAndroid } from "react-native"
 import TootaAPIConfig from "./tootaApiConfig"
 
 const signUp = async({ data }: { data : object }) => {
@@ -8,6 +9,8 @@ const signUp = async({ data }: { data : object }) => {
         headers: TootaAPIConfig.headersPost,
         body: JSON.stringify(data)
     })
+
+    // ToastAndroid.show(endpoint, 1000)
 
     if (!response.ok) {
         return new Error("unable to create user", {cause: response.statusText})

@@ -14,7 +14,7 @@ type VerifyEmailProps = {
     email: string
 }
 
-const VerifyEmail = () => {
+export default function VerifyEmail () {
     const { email } = useLocalSearchParams<VerifyEmailProps>()
 
     const router = useRouter()
@@ -78,4 +78,4 @@ const VerifyEmail = () => {
     )
 }
 
-export default VerifyEmail
+// export default VerifyEmail

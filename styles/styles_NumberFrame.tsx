@@ -5,10 +5,10 @@ const Styles_NumberFrame = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         paddingTop: 20,
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
     each: {
-        width: 90,
+        width: 95,
         height: 72,
         justifyContent: "center",
         alignItems: "center"
