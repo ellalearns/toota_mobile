@@ -32,17 +32,14 @@ export default function Kyc() {
                 </View>
                 <ViewBreak />
             </View>
-            {/* <View style={Styles_Kyc.formView}>
-                
-            </View> */}
-            <KeyboardAvoidingView enabled={false}>
+            <KeyboardAvoidingView enabled={false} behavior={undefined} style={Styles_Kyc.formView}>
                 <View>
-                    <Text>Personal photo (optional)</Text>
-                    <View>
-                        <Text>Upload a personal photo of yourself</Text>
+                    <Text style={Styles_Kyc.picMainText}>Personal photo (optional)</Text>
+                    <View style={Styles_Kyc.uploadView}>
+                        <Text style={Styles_Kyc.picBodyText}>Upload a personal photo of yourself</Text>
                         <View>
-                            <TouchableOpacity onPress={() => { }}>
-                                <Text>Upload</Text>
+                            <TouchableOpacity onPress={() => { }} style={Styles_Kyc.uploadButton}>
+                                <Text style={Styles_Kyc.picBodyText}>Upload</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
