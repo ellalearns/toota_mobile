@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import SplashScreen from "./splash_screen";
 import Role from "./(onboarding)/role";
 import KycIntro from "./(onboarding)/kycIntro";
+import Kyc from "./(onboarding)/kyc";
 
 export default function Index() {
 
@@ -19,6 +20,7 @@ export default function Index() {
     // <View>
     //   <Text>Working on Local Phone</Text>
     // </View>
-    <KycIntro />
+    // <KycIntro />
+    <Kyc />
   );
 }

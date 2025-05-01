@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { View, TextInput, Text, Image, EnterKeyHintTypeOptions, TouchableOpacity } from "react-native";
 
 type InputTextProps = {
-    icon1: any,
+    icon1?: any,
     icon2?: any,
     icon2fun?: (value: any) => void,
     placeholder?: string,

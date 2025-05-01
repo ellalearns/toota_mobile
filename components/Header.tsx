@@ -3,8 +3,8 @@ import React from "react";
 import { Text, View } from "react-native";
 
 type HeaderFrameProps = {
-    main?: string,
-    body: string
+    main: string,
+    body?: string
 }
 
 const HeaderFrame = ({ main, body }: HeaderFrameProps) => {
