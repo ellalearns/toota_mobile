@@ -1,10 +1,9 @@
 import React from "react";
 import { View } from "react-native";
 
-const Kyc = () => {
+export default function Kyc () {
     return (
         <View></View>
     )
 }
 
-export default Kyc

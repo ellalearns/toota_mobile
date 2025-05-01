@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import SplashScreen from "./splash_screen";
 import Role from "./(onboarding)/role";
+import KycIntro from "./(onboarding)/kycIntro";
 
 export default function Index() {
 
@@ -14,9 +15,10 @@ export default function Index() {
   });
 
   return (
-    (splashScreen) ? <SplashScreen /> : <Role />
+    // (splashScreen) ? <SplashScreen /> : <Role />
     // <View>
     //   <Text>Working on Local Phone</Text>
     // </View>
+    <KycIntro />
   );
 }
