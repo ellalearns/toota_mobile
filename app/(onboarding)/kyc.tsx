@@ -5,7 +5,7 @@ import MainButton from "@/components/MainButton";
 import ViewBreak from "@/components/ViewBreak";
 import Styles_Kyc from "@/styles/styles_Kyc";
 import React, { useState } from "react";
-import { KeyboardAvoidingView, Text, TouchableOpacity, View } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 export default function Kyc() {
 
@@ -23,6 +23,8 @@ export default function Kyc() {
     const [ profilePic, setProfilePic ] = useState()
     const [ anyEmpty, setAnyEmpty ] = useState(false)
 
+    const [ isKeyboardVisible, setIsKeyboardVisible ] = useState(false)
+
     return (
         <View style={Styles_Kyc.main}>
             <View>
@@ -32,7 +34,8 @@ export default function Kyc() {
                 </View>
                 <ViewBreak />
             </View>
-            <KeyboardAvoidingView enabled={false} behavior={undefined} style={Styles_Kyc.formView}>
+            <KeyboardAvoidingView enabled={false} behavior={Platform.OS === "ios" ? "padding" : undefined} style={isKeyboardVisible ? null : Styles_Kyc.formView}>
+                <ScrollView contentContainerStyle={Styles_Kyc.scrollView}>
                 <View>
                     <Text style={Styles_Kyc.picMainText}>Personal photo (optional)</Text>
                     <View style={Styles_Kyc.uploadView}>
@@ -84,6 +87,7 @@ export default function Kyc() {
                 <View>
                     <MainButton text="Confirm route" pressFun={() => {}} isEmpty={anyEmpty} />
                 </View>
+                </ScrollView>
             </KeyboardAvoidingView>
         </View>
     )

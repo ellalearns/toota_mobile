@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 
 const Styles_Kyc = StyleSheet.create({
     main: {
@@ -38,6 +38,10 @@ const Styles_Kyc = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 10
+    },
+    scrollView: {
+        flexGrow: 1,
+        justifyContent: "space-around"
     }
 })
 
