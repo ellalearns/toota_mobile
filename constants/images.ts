@@ -20,7 +20,8 @@ const images = {
     closedEye: require("../assets/images/eye-slash.png"),
     eclipse: require("../assets/images/eclipse.png"),
     backspace: require("../assets/images/backspace.png"),
-    profile: require("../assets/images/profile.png")
+    profile: require("../assets/images/profile.png"),
+    personalData: require("../assets/images/personalData.png")
 }
 
 export default images
