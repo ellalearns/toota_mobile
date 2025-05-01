@@ -23,6 +23,11 @@ const Styles_KycIntro = StyleSheet.create({
         alignContent: "center",
         justifyContent: "center",
         paddingBottom: 16
+    },
+    rowTextText: {
+        textAlign: "center",
+        textAlignVertical: "center",
+        color: "#6b6357"
     }
 })
 
