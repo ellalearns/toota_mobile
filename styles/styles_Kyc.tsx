@@ -16,6 +16,9 @@ const Styles_Kyc = StyleSheet.create({
         justifyContent: "space-evenly",
         flex: 1,
     },
+    formViewActive: {
+        marginBottom: 33
+    },
     picMainText: {
         fontSize: 20
     },

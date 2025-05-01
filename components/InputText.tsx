@@ -13,17 +13,18 @@ type InputTextProps = {
     onFocus?: () => void,
     onChange?: () => void,
     enterKeyHint?: string,
-    onChangeText: (value: string) => void
+    onChangeText: (value: string) => void,
+    activeKeyboardStyle?: any
 }
 
 const InputText = ({
-    icon1 = "", icon2 = "", icon2fun, placeholder = "", secure = false, value = "", label = "", enterKeyHint = "done", onFocus, onChange, onChangeText
+    icon1 = "", icon2 = "", icon2fun, placeholder = "", secure = false, value = "", label = "", enterKeyHint = "done", onFocus, onChange, onChangeText, activeKeyboardStyle
 }: InputTextProps) => {
 
     const [text, setText] = useState(value)
 
     return (
-        <View style={styles_InputText.mainView}>
+        <View style={[styles_InputText.mainView, activeKeyboardStyle]}>
 
             <View>
                 <Text style={styles_InputText.inputLabel}>{label}</Text>
