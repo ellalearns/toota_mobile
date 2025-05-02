@@ -6,8 +6,27 @@ import ViewBreak from "@/components/ViewBreak";
 import Styles_Kyc from "@/styles/styles_Kyc";
 import React, { useEffect, useState } from "react";
 import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import * as ImagePicker from "expo-image-picker"
 
 export default function Kyc() {
+
+    const [ image, setImage ] = useState<string | null>(null)
+    const [ imageName, setImageName ] = useState<string | null | undefined>("")
+
+    const pickImage = async () => {
+        let image = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ["images"],
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1
+        })
+
+        if (!image.canceled) {
+            setImage(image.assets[0].uri)
+            setImageName(image.assets[0].fileName)
+        }
+
+    }
 
     const checkEmptyFields = (firstName: string, lastName: string, phoneNumber: string, address: string) => {
         if (firstName === "" || lastName === "" || phoneNumber === "" || address === "") {
@@ -55,8 +74,8 @@ export default function Kyc() {
                     <View style={Styles_Kyc.uploadView}>
                         <Text style={Styles_Kyc.picBodyText}>Upload a personal photo of yourself</Text>
                         <View>
-                            <TouchableOpacity onPress={() => { }} style={Styles_Kyc.uploadButton}>
-                                <Text style={Styles_Kyc.picBodyText}>Upload</Text>
+                            <TouchableOpacity onPress={pickImage} style={[Styles_Kyc.uploadButton, imageName ? Styles_Kyc.uploadButtonSelected : null]}>
+                                <Text style={Styles_Kyc.picBodyText}>{image ? imageName?.substring(0, 4) + "..." : "Upload"}</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

@@ -42,6 +42,9 @@ const Styles_Kyc = StyleSheet.create({
         justifyContent: "center",
         borderRadius: 10
     },
+    uploadButtonSelected: {
+        backgroundColor: "#e6f9e7"
+    },
     scrollView: {
         flexGrow: 1,
         justifyContent: "space-around"
