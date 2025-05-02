@@ -33,13 +33,13 @@ export default function Role () {
                 <TouchableOpacity style={styles.roleBoxButtons} onPress={() => pickTrip()}>
                     <View style={[styles.roleBox, tripSelected ? styles.selectedRoleBox : null]}>
                         <Image source={images.findDriver} />
-                        <Text style={styles.innerRoleBoxContent}>Find a trip</Text>
+                        <Text style={styles.innerRoleBoxContent}>Find Trips</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.roleBoxButtons} onPress={() => pickDriver()}>
                     <View style={[styles.roleBox, driverSelected ? styles.selectedRoleBox : null]}>
                         <Image source={images.findTrip} />
-                        <Text style={styles.innerRoleBoxContent}>Find a driver</Text>
+                        <Text style={styles.innerRoleBoxContent}>Find a Driver</Text>
                     </View>
                 </TouchableOpacity>
             </View>

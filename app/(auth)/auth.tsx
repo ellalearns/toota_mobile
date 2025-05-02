@@ -89,17 +89,17 @@ export default function Auth () {
         <View style={styles_SignUp.main}>
             <KeyboardAvoidingView style={styles_SignUp.main}
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                onTouchStart={onDismissKeyboard}
+                // onTouchStart={onDismissKeyboard}
             >
 
                 <View style={styles_SignUp.view1}>
 
-                    <View style={styles_SignUp.backView}>
+                    <View style={styles_SignUp.backView} onTouchStart={onDismissKeyboard}>
 
                         <BackButton onPress={() => router.back()} />
                     </View>
 
-                    <View style={styles_SignUp.textView}>
+                    <View style={styles_SignUp.textView} onTouchStart={onDismissKeyboard}>
                         <Text style={styles_SignUp.signup1}>{action === "signup" ? copy.signup1 : copy.login1}</Text>
                         <Text style={styles_SignUp.signup2}>{action === "signup" ? copy.signup2 : copy.login2}</Text>
                     </View>

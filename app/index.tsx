@@ -16,11 +16,11 @@ export default function Index() {
   });
 
   return (
-    // (splashScreen) ? <SplashScreen /> : <Role />
+    (splashScreen) ? <SplashScreen /> : <Role />
     // <View>
     //   <Text>Working on Local Phone</Text>
     // </View>
     // <KycIntro />
-    <Kyc />
+    // <Kyc />
   );
 }

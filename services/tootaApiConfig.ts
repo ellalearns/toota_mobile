@@ -1,9 +1,12 @@
+import * as SecureStore from "expo-secure-store"
+
+const access_token = SecureStore.getItem("access")
 
 const TootaAPIConfig = {
     BASE_URL: "https://toota-mobile-sa.onrender.com",
     headersGet: {
         accept: "application/json",
-        Authorization: `Bearer ${process.env.EXPO_PUBLIC_JWT}`,
+        Authorization: `Bearer ${access_token}`,
     },
     headersPost: {
         "accept": "*/*",
