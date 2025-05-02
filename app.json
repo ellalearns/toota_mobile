@@ -17,7 +17,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.toota.toota_mobile"
+      "package": "com.toota.toota_mobile",
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_BACKGROUND_LOCATION"]
     },
     "web": {
       "bundler": "metro",
@@ -30,6 +31,13 @@
         "expo-image-picker",
         {
           "photosPermission": "Allow Toota access your photos to pick a profile picture"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Toota to Access Your Location",
+          "isAndroidBackgroundLocationEnabled": false
         }
       ]
     ],

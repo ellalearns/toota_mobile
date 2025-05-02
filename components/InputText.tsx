@@ -18,7 +18,7 @@ type InputTextProps = {
 }
 
 const InputText = ({
-    icon1 = "", icon2 = "", icon2fun, placeholder = "", secure = false, value = "", label = "", enterKeyHint = "done", onFocus, onChange, onChangeText, activeKeyboardStyle
+    icon1 = "", icon2 = "", icon2fun, placeholder = "", secure = false, value, label = "", enterKeyHint = "done", onFocus, onChange, onChangeText, activeKeyboardStyle
 }: InputTextProps) => {
 
     const [text, setText] = useState(value)
@@ -40,7 +40,7 @@ const InputText = ({
                         onChangeText(newText)
                         value = newText
                     }}
-                    value={text}
+                    value={value}
                     placeholder={placeholder}
                     secureTextEntry={secure}
                     placeholderTextColor="#867f75"

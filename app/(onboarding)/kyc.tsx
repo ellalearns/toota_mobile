@@ -5,13 +5,45 @@ import MainButton from "@/components/MainButton";
 import ViewBreak from "@/components/ViewBreak";
 import Styles_Kyc from "@/styles/styles_Kyc";
 import React, { useEffect, useState } from "react";
-import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, Text, ToastAndroid, TouchableOpacity, View } from "react-native";
 import * as ImagePicker from "expo-image-picker"
+import * as Location from "expo-location"
 
 export default function Kyc() {
 
+    const [ finalAddress, setFinalAddress ] = useState("")
+    const [ address, setAddress ] = useState("")
+
     const [ image, setImage ] = useState<string | null>(null)
     const [ imageName, setImageName ] = useState<string | null | undefined>("")
+
+    const [ firstName, setFirstName ] = useState("")
+    const [ lastName, setLastName ] = useState("")
+    const [ phoneNumber, setPhoneNumber ] = useState("")
+    const [ anyEmpty, setAnyEmpty ] = useState(false)
+
+    const [ isKeyboardVisible, setIsKeyboardVisible ] = useState(false)
+
+    useEffect(() => {
+        const getLocation = async () => {
+            const { status } = await Location.requestForegroundPermissionsAsync()
+            if (status != "granted") {
+                return
+            }
+
+            const loc = await Location.getCurrentPositionAsync({})
+            const addr = await Location.reverseGeocodeAsync(loc.coords)
+
+            if (addr.length > 0) {
+                const formatted = addr[0].formattedAddress + ""
+                setAddress(formatted)
+                setFinalAddress(addr[0].city + ", " + addr[0].region)
+            }
+
+
+        }
+        getLocation()
+    }, [])
 
     const pickImage = async () => {
         let image = await ImagePicker.launchImageLibraryAsync({
@@ -34,15 +66,6 @@ export default function Kyc() {
         }
         return true
     }
-
-    const [ firstName, setFirstName ] = useState("")
-    const [ lastName, setLastName ] = useState("")
-    const [ phoneNumber, setPhoneNumber ] = useState("")
-    const [ address, setAddress ] = useState("")
-    const [ profilePic, setProfilePic ] = useState()
-    const [ anyEmpty, setAnyEmpty ] = useState(false)
-
-    const [ isKeyboardVisible, setIsKeyboardVisible ] = useState(false)
 
     const onEnterKeyboard = () => {
         setIsKeyboardVisible(true)
@@ -87,7 +110,7 @@ export default function Kyc() {
                     value={firstName}
                     onChangeText={setFirstName}
                     enterKeyHint="next"
-                    onChange={() => checkEmptyFields(firstName, lastName, phoneNumber, address)}
+                    onChange={() => setAnyEmpty(checkEmptyFields(firstName, lastName, phoneNumber, address))}
                     onFocus={onEnterKeyboard}
                     activeKeyboardStyle={isKeyboardVisible ? Styles_Kyc.formViewActive : null}
                 />
@@ -98,7 +121,7 @@ export default function Kyc() {
                     value={lastName}
                     onChangeText={setLastName}
                     enterKeyHint="next"
-                    onChange={() => checkEmptyFields(firstName, lastName, phoneNumber, address)}
+                    onChange={() => setAnyEmpty(checkEmptyFields(firstName, lastName, phoneNumber, address))}
                     onFocus={onEnterKeyboard}
                     activeKeyboardStyle={isKeyboardVisible ? Styles_Kyc.formViewActive : null}
                 />
@@ -109,7 +132,7 @@ export default function Kyc() {
                     value={phoneNumber}
                     onChangeText={setPhoneNumber}
                     enterKeyHint="next"
-                    onChange={() => checkEmptyFields(firstName, lastName, phoneNumber, address)}
+                    onChange={() => setAnyEmpty(checkEmptyFields(firstName, lastName, phoneNumber, address))}
                     onFocus={onEnterKeyboard}
                     activeKeyboardStyle={isKeyboardVisible ? Styles_Kyc.formViewActive : null}
                 />
@@ -120,7 +143,7 @@ export default function Kyc() {
                     value={address}
                     onChangeText={setAddress}
                     enterKeyHint="next"
-                    onChange={() => checkEmptyFields(firstName, lastName, phoneNumber, address)}
+                    onChange={() => setAnyEmpty(checkEmptyFields(firstName, lastName, phoneNumber, address))}
                     onFocus={onEnterKeyboard}
                     activeKeyboardStyle={isKeyboardVisible ? Styles_Kyc.formViewActive : null}
                 />
