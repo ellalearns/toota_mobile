@@ -1,7 +1,9 @@
+import DriverWelcomeScreen from "@/app/(auth)/DriverWelcomeScreen"
 
 const images = {
     icon: require("../assets/images/icon.png"),
     spinner: require("../assets/images/spinner2.png"),
+    DriverWelcomeScreen: require("../assets/images/DriverWelcomeScreen.png"),
     findTrip: require("../assets/images/findTrip.png"),
     findDriver: require("../assets/images/findDriver.png"),
     welcome: require("../assets/images/welcome.png"),

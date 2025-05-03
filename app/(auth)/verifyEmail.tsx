@@ -10,7 +10,6 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, ToastAndroid } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
 type VerifyEmailProps = {
     email: string
 }

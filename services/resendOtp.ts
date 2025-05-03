@@ -1,7 +1,7 @@
 import TootaAPIConfig from "./tootaApiConfig"
 
-const sendOtp = async ({ data }: { data : object}) => {
-    const endpoint = TootaAPIConfig.BASE_URL + "/auth/verify-email/"
+const resendOtp = async ({ data }: { data : object}) => {
+    const endpoint = TootaAPIConfig.BASE_URL + "/auth/resend-code/"
 
     const response = await fetch(endpoint, {
         method: "POST",
@@ -14,8 +14,8 @@ const sendOtp = async ({ data }: { data : object}) => {
     }
 
     const isUser = await response.json()
- 
+
     return isUser
 }
 
-export default sendOtp
+export default resendOtp
