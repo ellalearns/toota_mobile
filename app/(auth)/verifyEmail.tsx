@@ -50,7 +50,7 @@ export default function VerifyEmail () {
         if (otp instanceof Error) {
             ToastAndroid.show("wrong otp", 1000)
         } else {
-            router.push("/main_app")
+            router.push("/(onboarding)/kycIntro")
         }
     }
 
