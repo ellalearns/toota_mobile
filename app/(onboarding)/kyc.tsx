@@ -8,8 +8,13 @@ import React, { useEffect, useState } from "react";
 import { Keyboard, KeyboardAvoidingView, Platform, ScrollView, Text, ToastAndroid, TouchableOpacity, View } from "react-native";
 import * as ImagePicker from "expo-image-picker"
 import * as Location from "expo-location"
+import { useRouter } from "expo-router";
+import editProfile from "@/services/editProfile";
+import getProfile from "@/services/getProfile";
 
 export default function Kyc() {
+
+    const router = useRouter()
 
     const [ finalAddress, setFinalAddress ] = useState("")
     const [ address, setAddress ] = useState("")
@@ -81,6 +86,24 @@ export default function Kyc() {
         return () => hideKB.remove()
     }, [])
 
+    const loadProfile = async () => {
+
+        const data = {
+            "first_name": firstName,
+            "last_name": lastName,
+            "physical_address": address,
+            "phone_number": phoneNumber,
+            "profile_picture": image
+        }
+
+        console.log(data)
+
+        await editProfile({ data })
+
+        router.push("/main_app")
+
+    }
+
     return (
         <View style={Styles_Kyc.main}>
             <View>
@@ -149,7 +172,7 @@ export default function Kyc() {
                 />
 
                 <View style={isKeyboardVisible ? Styles_Kyc.formViewActive : null}>
-                    <MainButton text="Confirm route" pressFun={() => {}} isEmpty={anyEmpty} />
+                    <MainButton text="Confirm route" pressFun={loadProfile} isEmpty={anyEmpty} />
                 </View>
                 </ScrollView>
             </KeyboardAvoidingView>

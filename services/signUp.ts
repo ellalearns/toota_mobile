@@ -10,7 +10,7 @@ const signUp = async({ data }: { data : object }) => {
     })
 
     if (!response.ok) {
-        return new Error("unable to create user", {cause: response.statusText})
+        return new Error(response.status.toString() + " " + response.statusText , {cause: response.statusText + "" + response.status})
     }
 
     const userData = await response.json() 

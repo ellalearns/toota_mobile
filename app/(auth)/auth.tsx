@@ -89,7 +89,6 @@ export default function Auth () {
         <View style={styles_SignUp.main}>
             <KeyboardAvoidingView style={styles_SignUp.main}
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
-                // onTouchStart={onDismissKeyboard}
             >
 
                 <View style={styles_SignUp.view1}>

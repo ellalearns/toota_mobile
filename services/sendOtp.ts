@@ -1,4 +1,9 @@
 import TootaAPIConfig from "./tootaApiConfig"
+import * as SecureStore from "expo-secure-store"
+
+const saveToken = async (key: string, value: string) => {
+    await SecureStore.setItemAsync(key, value)
+}
 
 const sendOtp = async ({ data }: { data : object}) => {
     const endpoint = TootaAPIConfig.BASE_URL + "/auth/verify-email/"
@@ -14,6 +19,8 @@ const sendOtp = async ({ data }: { data : object}) => {
     }
 
     const isUser = await response.json()
+
+    saveToken("access", isUser.access)
 
     return isUser
 }
