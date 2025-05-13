@@ -78,4 +78,3 @@ export default function VerifyEmail () {
     )
 }
 
-// export default VerifyEmail

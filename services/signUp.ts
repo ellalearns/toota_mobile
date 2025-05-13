@@ -1,3 +1,4 @@
+import saveToken from "./deps"
 import TootaAPIConfig from "./tootaApiConfig"
 
 const signUp = async({ data }: { data : object }) => {
@@ -13,7 +14,7 @@ const signUp = async({ data }: { data : object }) => {
         return new Error(response.status.toString() + " " + response.statusText , {cause: response.statusText + "" + response.status})
     }
 
-    const userData = await response.json() 
+    const userData = await response.json()
     
     return userData
 }
