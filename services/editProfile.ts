@@ -1,40 +1,59 @@
 import TootaAPIConfig from "./tootaApiConfig"
+import * as SecureStore from "expo-secure-store"
 
-const getMimeType = (uri: string) => {
-    if (uri.endsWith(".png")) return "image/png";
-    if (uri.endsWith(".jpg") || uri.endsWith(".jpeg")) return "image/jpeg";
-    return null
-};
+const getAccess = async () => {
+    console.log("enterrred")
+    const code = await SecureStore.getItemAsync("access")
+    console.log("code used to edit profile => ", code)
+    return code
+}
 
 const editProfile = async ({ data }: { data: Record<string, any> }) => {
+    console.log("let's start")
     const endpoint = TootaAPIConfig.BASE_URL + "/auth/kyc-update/user/"
 
     const formdata = new FormData()
     for (const key in data) {
         if (data[key] != null) {
+            if (key === "profile_pic") {
+                const pic = data[key]
+                if (pic?.uri != null && pic?.name && pic?.type) {
+                    formdata.append(key, data[key])
+                    console.log("done dis")
+                }
+            } else {
                 formdata.append(key, data[key])
+                console.log("done dis")
+            }
         }
     }
-    console.log("formdata => ", formdata)
 
-    // console.log("headersPut ", TootaAPIConfig.headersPut)
+    console.log("outsider") 
+
+    const token = await getAccess()
+    console.log("authorization => ", token)
+    console.log("formdata ", formdata)
 
     const response = await fetch(endpoint, {
         method: "PUT",
-        headers: TootaAPIConfig.headersPut,
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
         body: formdata
     })
 
     console.log("response => ", response)
 
     if (!response.ok) {
-        console.log(response.status.toString() + " " + response.statusText)
+        const errorResponse = await response.json()
+        console.log("errorResponse => ", errorResponse)
+
         return new Error(response.status.toString() + " " + response.statusText, { cause: response.statusText })
     }
 
-    const result = await response.json()
-    console.log(result)
+    console.log("actually here")
 
+    const result = await response.json()
     return result
 }
 

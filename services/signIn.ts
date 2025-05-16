@@ -1,9 +1,5 @@
+import saveToken from "./deps"
 import TootaAPIConfig from "./tootaApiConfig"
-import * as SecureStore from "expo-secure-store"
-
-const saveToken = async (key: string, value: string) => {
-    await SecureStore.setItemAsync(key, value)
-}
 
 const signIn = async ({ data } : { data : object }) => {
     const endpoint = TootaAPIConfig.BASE_URL + "/auth/login/user/"

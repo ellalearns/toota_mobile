@@ -1,22 +1,22 @@
 import * as SecureStore from "expo-secure-store"
 
-const access_token = SecureStore.getItem("access")
-console.log(access_token)
+const getAccessCode = async () => {
+    const code = await SecureStore.getItemAsync("access")
+    return code
+}
 
 const TootaAPIConfig = {
     BASE_URL: "https://toota-mobile-sa.onrender.com",
     headersGet: {
         accept: "application/json",
-        Authorization: `Bearer ${access_token}`,
+        Authorization: `Bearer ${getAccessCode()}`,
     },
     headersPost: {
         "accept": "*/*",
         "Content-Type": "application/json"
     },
     headersPut: {
-        Authorization: `Bearer ${access_token}`,
-        // accept: "application/json",
-        // "Content-Type": "multipart/form-data"
+        Authorization: `Bearer ${getAccessCode}`,
     }
 
 }

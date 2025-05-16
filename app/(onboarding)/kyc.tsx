@@ -21,6 +21,7 @@ export default function Kyc() {
 
     const [ image, setImage ] = useState<string | null>(null)
     const [ imageName, setImageName ] = useState<string | null | undefined>("")
+    const [ imageType, setImageType ] = useState<string | null | undefined>("")
 
     const [ firstName, setFirstName ] = useState("")
     const [ lastName, setLastName ] = useState("")
@@ -61,6 +62,7 @@ export default function Kyc() {
         if (!image.canceled) {
             setImage(image.assets[0].uri)
             setImageName(image.assets[0].fileName)
+            setImageType("image/" + image.assets[0].fileName?.split(".").pop()?.toLowerCase())
         }
 
     }
@@ -93,10 +95,12 @@ export default function Kyc() {
             "last_name": lastName,
             "physical_address": address,
             "phone_number": phoneNumber,
-            "profile_picture": image
+            "profile_pic": {
+                uri: image,
+                name: imageName,
+                type: imageType
+            }
         }
-
-        console.log(data)
 
         await editProfile({ data })
 
