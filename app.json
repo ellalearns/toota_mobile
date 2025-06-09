@@ -17,7 +17,12 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.toota.toota_mobile"
+      "package": "com.toota.toota_mobile",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -37,7 +42,10 @@
         {
           "locationAlwaysAndWhenInUsePermission": "Allow Toota to Access Your Location"
         }
-      ]
+      ],
+      "expo-secure-store",
+      "expo-font",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
@@ -47,9 +55,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "ccb76452-e5f8-4057-8a5a-bf6a7e2a05cd"
+        "projectId": "08c00c14-cffd-40b6-9c31-3f6a3b620be9"
       }
     },
-    "owner": "ellangoziagu"
+    "owner": "tootanow"
   }
 }
